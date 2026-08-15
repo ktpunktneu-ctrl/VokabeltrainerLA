@@ -1,0 +1,920 @@
+[
+  {
+    "id": 1,
+    "kategorie": "Grundlagen",
+    "it": "salve",
+    "de": "Hallo (zu einer Person)"
+  },
+  {
+    "id": 2,
+    "kategorie": "Grundlagen",
+    "it": "salvete",
+    "de": "Hallo (zu mehreren)"
+  },
+  {
+    "id": 3,
+    "kategorie": "Grundlagen",
+    "it": "vale",
+    "de": "Auf Wiedersehen (zu einer Person)"
+  },
+  {
+    "id": 4,
+    "kategorie": "Grundlagen",
+    "it": "valete",
+    "de": "Auf Wiedersehen (zu mehreren)"
+  },
+  {
+    "id": 5,
+    "kategorie": "Grundlagen",
+    "it": "quaeso",
+    "de": "bitte"
+  },
+  {
+    "id": 6,
+    "kategorie": "Grundlagen",
+    "it": "gratias tibi ago",
+    "de": "danke"
+  },
+  {
+    "id": 7,
+    "kategorie": "Grundlagen",
+    "it": "ita",
+    "de": "ja"
+  },
+  {
+    "id": 8,
+    "kategorie": "Grundlagen",
+    "it": "minime",
+    "de": "nein"
+  },
+  {
+    "id": 9,
+    "kategorie": "Grundlagen",
+    "it": "amabo te",
+    "de": "bitte (dringende Bitte)"
+  },
+  {
+    "id": 10,
+    "kategorie": "Grundlagen",
+    "it": "quid agis",
+    "de": "wie geht es dir"
+  },
+  {
+    "id": 11,
+    "kategorie": "Grundlagen",
+    "it": "bene",
+    "de": "gut"
+  },
+  {
+    "id": 12,
+    "kategorie": "Grundlagen",
+    "it": "male",
+    "de": "schlecht"
+  },
+  {
+    "id": 13,
+    "kategorie": "Grundlagen",
+    "it": "fortasse",
+    "de": "vielleicht"
+  },
+  {
+    "id": 14,
+    "kategorie": "Grundlagen",
+    "it": "et",
+    "de": "und"
+  },
+  {
+    "id": 15,
+    "kategorie": "Grundlagen",
+    "it": "sed",
+    "de": "aber"
+  },
+  {
+    "id": 16,
+    "kategorie": "Grundlagen",
+    "it": "si",
+    "de": "wenn"
+  },
+  {
+    "id": 17,
+    "kategorie": "Grundlagen",
+    "it": "quia",
+    "de": "weil"
+  },
+  {
+    "id": 18,
+    "kategorie": "Grundlagen",
+    "it": "nunc",
+    "de": "jetzt"
+  },
+  {
+    "id": 19,
+    "kategorie": "Zahlen",
+    "it": "unus",
+    "de": "eins"
+  },
+  {
+    "id": 20,
+    "kategorie": "Zahlen",
+    "it": "duo",
+    "de": "zwei"
+  },
+  {
+    "id": 21,
+    "kategorie": "Zahlen",
+    "it": "tres",
+    "de": "drei"
+  },
+  {
+    "id": 22,
+    "kategorie": "Zahlen",
+    "it": "quattuor",
+    "de": "vier"
+  },
+  {
+    "id": 23,
+    "kategorie": "Zahlen",
+    "it": "quinque",
+    "de": "fünf"
+  },
+  {
+    "id": 24,
+    "kategorie": "Zahlen",
+    "it": "sex",
+    "de": "sechs"
+  },
+  {
+    "id": 25,
+    "kategorie": "Zahlen",
+    "it": "septem",
+    "de": "sieben"
+  },
+  {
+    "id": 26,
+    "kategorie": "Zahlen",
+    "it": "octo",
+    "de": "acht"
+  },
+  {
+    "id": 27,
+    "kategorie": "Zahlen",
+    "it": "novem",
+    "de": "neun"
+  },
+  {
+    "id": 28,
+    "kategorie": "Zahlen",
+    "it": "decem",
+    "de": "zehn"
+  },
+  {
+    "id": 29,
+    "kategorie": "Zahlen",
+    "it": "centum",
+    "de": "hundert"
+  },
+  {
+    "id": 30,
+    "kategorie": "Zahlen",
+    "it": "mille",
+    "de": "tausend"
+  },
+  {
+    "id": 31,
+    "kategorie": "Farben",
+    "it": "albus",
+    "de": "weiß"
+  },
+  {
+    "id": 32,
+    "kategorie": "Farben",
+    "it": "niger",
+    "de": "schwarz"
+  },
+  {
+    "id": 33,
+    "kategorie": "Farben",
+    "it": "ruber",
+    "de": "rot"
+  },
+  {
+    "id": 34,
+    "kategorie": "Farben",
+    "it": "viridis",
+    "de": "grün"
+  },
+  {
+    "id": 35,
+    "kategorie": "Farben",
+    "it": "caeruleus",
+    "de": "blau"
+  },
+  {
+    "id": 36,
+    "kategorie": "Farben",
+    "it": "flavus",
+    "de": "gelb"
+  },
+  {
+    "id": 37,
+    "kategorie": "Farben",
+    "it": "purpureus",
+    "de": "purpurn"
+  },
+  {
+    "id": 38,
+    "kategorie": "Farben",
+    "it": "fuscus",
+    "de": "braun"
+  },
+  {
+    "id": 39,
+    "kategorie": "Familie",
+    "it": "pater",
+    "de": "Vater"
+  },
+  {
+    "id": 40,
+    "kategorie": "Familie",
+    "it": "mater",
+    "de": "Mutter"
+  },
+  {
+    "id": 41,
+    "kategorie": "Familie",
+    "it": "filius",
+    "de": "Sohn"
+  },
+  {
+    "id": 42,
+    "kategorie": "Familie",
+    "it": "filia",
+    "de": "Tochter"
+  },
+  {
+    "id": 43,
+    "kategorie": "Familie",
+    "it": "frater",
+    "de": "Bruder"
+  },
+  {
+    "id": 44,
+    "kategorie": "Familie",
+    "it": "soror",
+    "de": "Schwester"
+  },
+  {
+    "id": 45,
+    "kategorie": "Familie",
+    "it": "avus",
+    "de": "Großvater"
+  },
+  {
+    "id": 46,
+    "kategorie": "Familie",
+    "it": "avia",
+    "de": "Großmutter"
+  },
+  {
+    "id": 47,
+    "kategorie": "Familie",
+    "it": "puer",
+    "de": "Junge"
+  },
+  {
+    "id": 48,
+    "kategorie": "Familie",
+    "it": "puella",
+    "de": "Mädchen"
+  },
+  {
+    "id": 49,
+    "kategorie": "Familie",
+    "it": "vir",
+    "de": "Mann"
+  },
+  {
+    "id": 50,
+    "kategorie": "Familie",
+    "it": "femina",
+    "de": "Frau"
+  },
+  {
+    "id": 51,
+    "kategorie": "Natur",
+    "it": "aqua",
+    "de": "Wasser"
+  },
+  {
+    "id": 52,
+    "kategorie": "Natur",
+    "it": "terra",
+    "de": "Erde"
+  },
+  {
+    "id": 53,
+    "kategorie": "Natur",
+    "it": "caelum",
+    "de": "Himmel"
+  },
+  {
+    "id": 54,
+    "kategorie": "Natur",
+    "it": "sol",
+    "de": "Sonne"
+  },
+  {
+    "id": 55,
+    "kategorie": "Natur",
+    "it": "luna",
+    "de": "Mond"
+  },
+  {
+    "id": 56,
+    "kategorie": "Natur",
+    "it": "stella",
+    "de": "Stern"
+  },
+  {
+    "id": 57,
+    "kategorie": "Natur",
+    "it": "mons",
+    "de": "Berg"
+  },
+  {
+    "id": 58,
+    "kategorie": "Natur",
+    "it": "silva",
+    "de": "Wald"
+  },
+  {
+    "id": 59,
+    "kategorie": "Natur",
+    "it": "flumen",
+    "de": "Fluss"
+  },
+  {
+    "id": 60,
+    "kategorie": "Natur",
+    "it": "mare",
+    "de": "Meer"
+  },
+  {
+    "id": 61,
+    "kategorie": "Natur",
+    "it": "ventus",
+    "de": "Wind"
+  },
+  {
+    "id": 62,
+    "kategorie": "Natur",
+    "it": "ignis",
+    "de": "Feuer"
+  },
+  {
+    "id": 63,
+    "kategorie": "Natur",
+    "it": "arbor",
+    "de": "Baum"
+  },
+  {
+    "id": 64,
+    "kategorie": "Natur",
+    "it": "flos",
+    "de": "Blume"
+  },
+  {
+    "id": 65,
+    "kategorie": "Essen",
+    "it": "panis",
+    "de": "Brot"
+  },
+  {
+    "id": 66,
+    "kategorie": "Essen",
+    "it": "vinum",
+    "de": "Wein"
+  },
+  {
+    "id": 67,
+    "kategorie": "Essen",
+    "it": "lac",
+    "de": "Milch"
+  },
+  {
+    "id": 68,
+    "kategorie": "Essen",
+    "it": "caro",
+    "de": "Fleisch"
+  },
+  {
+    "id": 69,
+    "kategorie": "Essen",
+    "it": "piscis",
+    "de": "Fisch"
+  },
+  {
+    "id": 70,
+    "kategorie": "Essen",
+    "it": "mel",
+    "de": "Honig"
+  },
+  {
+    "id": 71,
+    "kategorie": "Essen",
+    "it": "pomum",
+    "de": "Frucht"
+  },
+  {
+    "id": 72,
+    "kategorie": "Essen",
+    "it": "oleum",
+    "de": "Öl"
+  },
+  {
+    "id": 73,
+    "kategorie": "Essen",
+    "it": "sal",
+    "de": "Salz"
+  },
+  {
+    "id": 74,
+    "kategorie": "Essen",
+    "it": "cibus",
+    "de": "Speise"
+  },
+  {
+    "id": 75,
+    "kategorie": "Zeit",
+    "it": "dies",
+    "de": "Tag"
+  },
+  {
+    "id": 76,
+    "kategorie": "Zeit",
+    "it": "nox",
+    "de": "Nacht"
+  },
+  {
+    "id": 77,
+    "kategorie": "Zeit",
+    "it": "hora",
+    "de": "Stunde"
+  },
+  {
+    "id": 78,
+    "kategorie": "Zeit",
+    "it": "annus",
+    "de": "Jahr"
+  },
+  {
+    "id": 79,
+    "kategorie": "Zeit",
+    "it": "mensis",
+    "de": "Monat"
+  },
+  {
+    "id": 80,
+    "kategorie": "Zeit",
+    "it": "hodie",
+    "de": "heute"
+  },
+  {
+    "id": 81,
+    "kategorie": "Zeit",
+    "it": "heri",
+    "de": "gestern"
+  },
+  {
+    "id": 82,
+    "kategorie": "Zeit",
+    "it": "cras",
+    "de": "morgen"
+  },
+  {
+    "id": 83,
+    "kategorie": "Zeit",
+    "it": "semper",
+    "de": "immer"
+  },
+  {
+    "id": 84,
+    "kategorie": "Zeit",
+    "it": "numquam",
+    "de": "nie"
+  },
+  {
+    "id": 85,
+    "kategorie": "Zeit",
+    "it": "saepe",
+    "de": "oft"
+  },
+  {
+    "id": 86,
+    "kategorie": "Schule",
+    "it": "schola",
+    "de": "Schule"
+  },
+  {
+    "id": 87,
+    "kategorie": "Schule",
+    "it": "magister",
+    "de": "Lehrer"
+  },
+  {
+    "id": 88,
+    "kategorie": "Schule",
+    "it": "discipulus",
+    "de": "Schüler"
+  },
+  {
+    "id": 89,
+    "kategorie": "Schule",
+    "it": "liber",
+    "de": "Buch"
+  },
+  {
+    "id": 90,
+    "kategorie": "Schule",
+    "it": "littera",
+    "de": "Buchstabe"
+  },
+  {
+    "id": 91,
+    "kategorie": "Schule",
+    "it": "verbum",
+    "de": "Wort"
+  },
+  {
+    "id": 92,
+    "kategorie": "Schule",
+    "it": "lingua",
+    "de": "Sprache"
+  },
+  {
+    "id": 93,
+    "kategorie": "Schule",
+    "it": "charta",
+    "de": "Papier"
+  },
+  {
+    "id": 94,
+    "kategorie": "Schule",
+    "it": "stilus",
+    "de": "Schreibgriffel"
+  },
+  {
+    "id": 95,
+    "kategorie": "Körper",
+    "it": "caput",
+    "de": "Kopf"
+  },
+  {
+    "id": 96,
+    "kategorie": "Körper",
+    "it": "oculus",
+    "de": "Auge"
+  },
+  {
+    "id": 97,
+    "kategorie": "Körper",
+    "it": "manus",
+    "de": "Hand"
+  },
+  {
+    "id": 98,
+    "kategorie": "Körper",
+    "it": "pes",
+    "de": "Fuß"
+  },
+  {
+    "id": 99,
+    "kategorie": "Körper",
+    "it": "cor",
+    "de": "Herz"
+  },
+  {
+    "id": 100,
+    "kategorie": "Körper",
+    "it": "os",
+    "de": "Mund"
+  },
+  {
+    "id": 101,
+    "kategorie": "Körper",
+    "it": "auris",
+    "de": "Ohr"
+  },
+  {
+    "id": 102,
+    "kategorie": "Körper",
+    "it": "nasus",
+    "de": "Nase"
+  },
+  {
+    "id": 103,
+    "kategorie": "Tiere",
+    "it": "canis",
+    "de": "Hund"
+  },
+  {
+    "id": 104,
+    "kategorie": "Tiere",
+    "it": "felis",
+    "de": "Katze"
+  },
+  {
+    "id": 105,
+    "kategorie": "Tiere",
+    "it": "equus",
+    "de": "Pferd"
+  },
+  {
+    "id": 106,
+    "kategorie": "Tiere",
+    "it": "avis",
+    "de": "Vogel"
+  },
+  {
+    "id": 107,
+    "kategorie": "Tiere",
+    "it": "leo",
+    "de": "Löwe"
+  },
+  {
+    "id": 108,
+    "kategorie": "Tiere",
+    "it": "ursus",
+    "de": "Bär"
+  },
+  {
+    "id": 109,
+    "kategorie": "Tiere",
+    "it": "serpens",
+    "de": "Schlange"
+  },
+  {
+    "id": 110,
+    "kategorie": "Tiere",
+    "it": "bos",
+    "de": "Rind"
+  },
+  {
+    "id": 111,
+    "kategorie": "Adjektive",
+    "it": "magnus",
+    "de": "groß"
+  },
+  {
+    "id": 112,
+    "kategorie": "Adjektive",
+    "it": "parvus",
+    "de": "klein"
+  },
+  {
+    "id": 113,
+    "kategorie": "Adjektive",
+    "it": "bonus",
+    "de": "gut"
+  },
+  {
+    "id": 114,
+    "kategorie": "Adjektive",
+    "it": "malus",
+    "de": "schlecht"
+  },
+  {
+    "id": 115,
+    "kategorie": "Adjektive",
+    "it": "novus",
+    "de": "neu"
+  },
+  {
+    "id": 116,
+    "kategorie": "Adjektive",
+    "it": "longus",
+    "de": "lang"
+  },
+  {
+    "id": 117,
+    "kategorie": "Adjektive",
+    "it": "altus",
+    "de": "hoch"
+  },
+  {
+    "id": 118,
+    "kategorie": "Adjektive",
+    "it": "multus",
+    "de": "viel"
+  },
+  {
+    "id": 119,
+    "kategorie": "Adjektive",
+    "it": "omnis",
+    "de": "jeder"
+  },
+  {
+    "id": 120,
+    "kategorie": "Adjektive",
+    "it": "pulcher",
+    "de": "schön"
+  },
+  {
+    "id": 121,
+    "kategorie": "Personalpronomen",
+    "it": "ego",
+    "de": "ich"
+  },
+  {
+    "id": 122,
+    "kategorie": "Personalpronomen",
+    "it": "tu",
+    "de": "du"
+  },
+  {
+    "id": 123,
+    "kategorie": "Personalpronomen",
+    "it": "is",
+    "de": "er"
+  },
+  {
+    "id": 124,
+    "kategorie": "Personalpronomen",
+    "it": "ea",
+    "de": "sie"
+  },
+  {
+    "id": 125,
+    "kategorie": "Personalpronomen",
+    "it": "id",
+    "de": "es"
+  },
+  {
+    "id": 126,
+    "kategorie": "Personalpronomen",
+    "it": "nos",
+    "de": "wir"
+  },
+  {
+    "id": 127,
+    "kategorie": "Personalpronomen",
+    "it": "vos",
+    "de": "ihr"
+  },
+  {
+    "id": 128,
+    "kategorie": "Personalpronomen",
+    "it": "ei",
+    "de": "sie (Plural)"
+  },
+  {
+    "id": 129,
+    "kategorie": "Verben",
+    "it": "esse",
+    "de": "sein"
+  },
+  {
+    "id": 130,
+    "kategorie": "Verben",
+    "it": "habere",
+    "de": "haben"
+  },
+  {
+    "id": 131,
+    "kategorie": "Verben",
+    "it": "amare",
+    "de": "lieben"
+  },
+  {
+    "id": 132,
+    "kategorie": "Verben",
+    "it": "videre",
+    "de": "sehen"
+  },
+  {
+    "id": 133,
+    "kategorie": "Verben",
+    "it": "audire",
+    "de": "hören"
+  },
+  {
+    "id": 134,
+    "kategorie": "Verben",
+    "it": "dicere",
+    "de": "sagen"
+  },
+  {
+    "id": 135,
+    "kategorie": "Verben",
+    "it": "facere",
+    "de": "machen"
+  },
+  {
+    "id": 136,
+    "kategorie": "Verben",
+    "it": "venire",
+    "de": "kommen"
+  },
+  {
+    "id": 137,
+    "kategorie": "Verben",
+    "it": "ire",
+    "de": "gehen"
+  },
+  {
+    "id": 138,
+    "kategorie": "Verben",
+    "it": "dare",
+    "de": "geben"
+  },
+  {
+    "id": 139,
+    "kategorie": "Verben",
+    "it": "legere",
+    "de": "lesen"
+  },
+  {
+    "id": 140,
+    "kategorie": "Verben",
+    "it": "scribere",
+    "de": "schreiben"
+  },
+  {
+    "id": 141,
+    "kategorie": "Verben",
+    "it": "vocare",
+    "de": "rufen"
+  },
+  {
+    "id": 142,
+    "kategorie": "Verben",
+    "it": "laudare",
+    "de": "loben"
+  },
+  {
+    "id": 143,
+    "kategorie": "Verben",
+    "it": "pugnare",
+    "de": "kämpfen"
+  },
+  {
+    "id": 144,
+    "kategorie": "Verben",
+    "it": "currere",
+    "de": "laufen"
+  },
+  {
+    "id": 145,
+    "kategorie": "Verben",
+    "it": "sedere",
+    "de": "sitzen"
+  },
+  {
+    "id": 146,
+    "kategorie": "Verben",
+    "it": "stare",
+    "de": "stehen"
+  },
+  {
+    "id": 147,
+    "kategorie": "Verben",
+    "it": "dormire",
+    "de": "schlafen"
+  },
+  {
+    "id": 148,
+    "kategorie": "Verben",
+    "it": "edere",
+    "de": "essen"
+  },
+  {
+    "id": 149,
+    "kategorie": "Verben",
+    "it": "bibere",
+    "de": "trinken"
+  },
+  {
+    "id": 150,
+    "kategorie": "Verben",
+    "it": "scire",
+    "de": "wissen"
+  },
+  {
+    "id": 151,
+    "kategorie": "Verben",
+    "it": "putare",
+    "de": "glauben"
+  },
+  {
+    "id": 152,
+    "kategorie": "Verben",
+    "it": "vivere",
+    "de": "leben"
+  },
+  {
+    "id": 153,
+    "kategorie": "Verben",
+    "it": "mori",
+    "de": "sterben"
+  }
+]

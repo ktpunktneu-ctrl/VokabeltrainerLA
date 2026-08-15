@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+<title>Vokabeltrainer Latein</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="static/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="VokabelLA">
+<meta name="theme-color" content="#6E2430">
+<style>
+@font-face{
+  font-family:'Designer';
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url('static/fonts/designer.woff2') format('woff2');
+}
+:root {
+  --green:#6E2430; --white:#fff; --red:#B8912F;
+  --bg:#f0f2f6; --card:#fff; --text:#1e293b; --text-light:#64748b;
+  --border:#e2e8f0; --success:#16a34a; --danger:#dc2626;
+  --radius:14px; --shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);
+  min-height:100vh; padding-top:env(safe-area-inset-top); padding-bottom:env(safe-area-inset-bottom);
+}
+#app{max-width:480px;margin:0 auto;padding:16px;min-height:100vh;display:flex;flex-direction:column}
+.page{display:none;flex:1;flex-direction:column}
+.page.active{display:flex}
+
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.header-title{display:flex;flex-direction:column}
+header h1{font-size:19px;font-weight:800;color:var(--green)}
+.header-tagline{font-size:10px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-top:1px}
+header .flag{display:inline-block;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#f3d98a,var(--red) 45%,#7a5a15 100%);border:1px solid rgba(0,0,0,.15);vertical-align:middle;margin-right:6px}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:none;position:relative;display:inline-flex;align-items:center;justify-content:center;font-size:18px;color:#fff;cursor:pointer;flex-shrink:0;box-shadow:inset -5px -6px 10px rgba(0,0,0,.28), inset 4px 5px 8px rgba(255,255,255,.4), 0 5px 12px rgba(0,0,0,.22);transition:transform .12s}
+.icon-btn:active{transform:scale(.92)}
+.icon-btn::after{content:'';position:absolute;top:13%;left:21%;width:28%;height:20%;background:radial-gradient(ellipse,rgba(255,255,255,.9),transparent 72%);border-radius:50%}
+.icon-btn-verwaltung{background:radial-gradient(circle at 32% 26%,#93a0b8,#525a72 55%,#2b3044);margin-right:8px}
+.icon-btn-hilfe{background:radial-gradient(circle at 32% 26%,#ffe08a,#f4b942 55%,#a9740a)}
+
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+.card-title{font-size:12px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+
+.chip-grid{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 14px;border-radius:20px;border:1.5px solid var(--border);background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:var(--text-light);transition:.15s}
+.chip.active{background:var(--green);border-color:var(--green);color:#fff}
+
+.radio-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.radio-opt{padding:12px;border-radius:10px;border:1.5px solid var(--border);text-align:center;font-size:13px;font-weight:600;cursor:pointer;color:var(--text-light)}
+.radio-opt.active{background:var(--green);border-color:var(--green);color:#fff}
+.radio-opt.disabled{opacity:.4;cursor:not-allowed}
+
+.btn{padding:14px;border-radius:12px;border:none;cursor:pointer;font-size:16px;font-weight:700;width:100%;transition:.15s}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:active{background:#7a0f13}
+.btn-secondary{background:#fff;color:var(--text);border:1.5px solid var(--border)}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-sm{padding:8px 14px;font-size:13px;width:auto}
+
+.slider-row{display:flex;align-items:center;gap:12px}
+.slider-row input[type=range]{flex:1}
+.slider-val{font-weight:800;color:var(--green);min-width:28px;text-align:center}
+
+/* Quiz */
+#quiz-progress{font-size:12px;color:var(--text-light);text-align:center;margin-bottom:8px}
+#quiz-progress-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px}
+#quiz-progress-fill{height:100%;background:var(--green);transition:width .2s}
+.quiz-card{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:40px 24px;text-align:center;flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.quiz-lang-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);background:var(--bg);padding:4px 10px;border-radius:10px;align-self:center}
+.quiz-word-row{display:flex;align-items:center;justify-content:center;gap:8px}
+.quiz-word{font-size:32px;font-weight:800;color:var(--text)}
+.speak-btn{background:none;border:none;font-size:22px;cursor:pointer;color:var(--green);padding:4px;line-height:1;flex-shrink:0}
+.speak-btn:disabled{opacity:.35;cursor:default}
+.ll-speak-btn{background:none;border:none;font-size:15px;cursor:pointer;color:var(--green);padding:0 0 0 6px;line-height:1;flex-shrink:0}
+.quiz-input{padding:14px;font-size:18px;border:2px solid var(--border);border-radius:12px;text-align:center;outline:none;font-family:inherit;width:100%}
+.quiz-input:focus{border-color:var(--green)}
+.quiz-input.correct{border-color:var(--success);background:#f0fdf4}
+.quiz-input.wrong{border-color:var(--danger);background:#fef2f2}
+.quiz-feedback{font-size:14px;font-weight:600;min-height:20px}
+.quiz-feedback.correct{color:var(--success)}
+.quiz-feedback.wrong{color:var(--danger)}
+.quiz-reaction{display:none;text-align:center;font-size:30px;font-weight:900;line-height:1.2;margin-bottom:4px}
+.quiz-reaction.show{display:block;animation:reactionPop .45s cubic-bezier(.34,1.56,.64,1)}
+.quiz-reaction.big{font-size:56px}
+.quiz-reaction.correct{color:var(--success)}
+.quiz-reaction.wrong{color:var(--danger)}
+@keyframes reactionPop{0%{transform:scale(.35);opacity:0}55%{transform:scale(1.18);opacity:1}100%{transform:scale(1)}}
+.quiz-forms{display:none;flex-wrap:wrap;justify-content:center;gap:6px;font-size:12px}
+.quiz-forms.show{display:flex}
+.quiz-forms span{background:var(--bg);padding:4px 9px;border-radius:8px;color:var(--text-light)}
+.quiz-forms span b{color:var(--text)}
+.quiz-actions{display:flex;gap:10px}
+
+/* Ergebnis */
+.result-score{font-size:52px;font-weight:800;text-align:center;color:var(--green);margin:20px 0 6px}
+.result-sub{text-align:center;color:var(--text-light);font-size:14px;margin-bottom:20px}
+.result-list{max-height:240px;overflow-y:auto;margin-bottom:16px}
+.result-item{display:flex;justify-content:space-between;padding:8px 10px;border-bottom:1px solid var(--border);font-size:13px}
+.result-item.wrong{color:var(--danger)}
+
+/* Verwaltung */
+.vk-item{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.vk-item .vk-kat{font-size:10px;font-weight:700;color:#fff;background:var(--green);padding:2px 7px;border-radius:8px;white-space:nowrap}
+.vk-kat-select{font-size:10px;font-weight:700;color:#fff;background:var(--green);padding:2px 4px;border-radius:8px;border:none;white-space:nowrap;cursor:pointer;max-width:110px}
+.kat-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px}
+.kat-row:last-child{border-bottom:none}
+.kat-row .kat-name{flex:1;font-weight:600}
+.kat-row .kat-count{font-size:11px;color:var(--text-light)}
+.kat-row .vk-del{opacity:1}
+.kat-row .vk-del.disabled{opacity:.3;cursor:not-allowed}
+.vk-item .vk-it{font-weight:700;flex:1}
+.vk-item .vk-de{color:var(--text-light);flex:1}
+.vk-del{background:none;border:none;color:var(--danger);font-size:16px;cursor:pointer}
+.vk-edit{background:none;border:none;color:var(--text-light);font-size:14px;cursor:pointer}
+.form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.form-row input,.form-row select{padding:10px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;outline:none;font-family:inherit;background:#fff;width:100%}
+.form-row input:focus,.form-row select:focus{border-color:var(--green)}
+
+/* FAB */
+.fab{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 20px);right:calc(50% - 240px + 20px);width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;font-size:28px;border:none;box-shadow:0 4px 14px rgba(170,21,27,0.4);cursor:pointer;z-index:500;display:flex;align-items:center;justify-content:center}
+@media (max-width:520px){.fab{right:20px}}
+
+/* Add-Modal */
+dialog{border:none;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.25);padding:0;width:340px;max-width:90vw;margin:14vh auto auto auto}
+dialog::backdrop{background:rgba(0,0,0,0.4)}
+.modal-body{padding:20px}
+.modal-title{font-size:15px;font-weight:800;margin-bottom:14px;color:var(--text)}
+.m-err{color:var(--danger);font-size:12px;min-height:16px;margin-top:6px;font-weight:600}
+.m-trial-hint{background:var(--bg);color:var(--text-light);font-size:12px;font-weight:600;padding:8px 10px;border-radius:8px;margin-bottom:12px}
+.ocr-row{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.ocr-row input{flex:1;padding:8px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;min-width:0}
+.ocr-row button{background:none;border:none;color:var(--danger);font-size:16px;cursor:pointer;padding:4px 6px}
+.modal-actions{display:flex;gap:8px;margin-top:6px}
+
+.page-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.page-hdr .back-btn{background:#fff;border:none;font-size:20px;cursor:pointer;color:var(--text);padding:0;width:34px;height:34px;border-radius:50%;box-shadow:var(--shadow);line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.page-hdr h2{font-size:19px;font-weight:900;color:var(--text)}
+
+/* -- STARTSEITE / HOME-SPLASH -- */
+#page-home{justify-content:center}
+.home-hero{text-align:center;padding:8px 4px 4px}
+.home-flag{width:150px;height:108px;margin:0 auto 14px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
+.flag-cloth{transform-origin:33px 43px;animation:flagWave 2.6s ease-in-out infinite}
+.home-title{font-family:'Designer',cursive;font-weight:400;font-size:34px;line-height:1.25;color:var(--text)}
+.home-title-accent{display:block;font-size:46px;background:linear-gradient(90deg,var(--green),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.home-tagline{font-size:13.5px;font-weight:700;color:var(--text-light);margin-top:10px}
+
+/* 3D-Kugel-Buttons, nebeneinander, Beschriftung als Text darunter */
+.home-spheres{display:flex;gap:18px;justify-content:center;margin-top:30px}
+.home-sphere-col{display:flex;flex-direction:column;align-items:center;flex:1;max-width:170px}
+.home-sphere{width:132px;height:132px;max-width:38vw;max-height:38vw;border-radius:50%;border:none;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;animation:homeFloat 3s ease-in-out infinite;transition:transform .15s cubic-bezier(.34,1.56,.64,1)}
+.home-sphere:active{transform:scale(.92)}
+.home-sphere-liste{background:radial-gradient(circle at 32% 26%, #7fe8ab, #00b85c 48%, #004d25 100%);box-shadow:inset -11px -14px 22px rgba(0,0,0,.3), inset 9px 12px 18px rgba(255,255,255,.42), 0 16px 28px rgba(0,98,47,.4)}
+.home-sphere-quiz{background:radial-gradient(circle at 32% 26%, #ffd0a8, #ff8a5c 48%, #7a0f14 100%);box-shadow:inset -11px -14px 22px rgba(0,0,0,.3), inset 9px 12px 18px rgba(255,255,255,.42), 0 16px 28px rgba(122,15,20,.4);animation-delay:.35s}
+.home-sphere::after{content:'';position:absolute;top:11%;left:19%;width:30%;height:20%;background:radial-gradient(ellipse at center, rgba(255,255,255,.92), rgba(255,255,255,0) 72%);border-radius:50%;transform:rotate(-25deg)}
+.home-sphere svg{width:44%;height:44%;position:relative;z-index:1}
+.home-sphere-caption{font-family:'Designer',cursive;font-weight:400;font-size:26px;color:var(--text);margin-top:12px}
+.home-sphere-sub{font-size:11.5px;font-weight:600;color:var(--text-light);text-align:center;margin-top:2px;line-height:1.35}
+
+@keyframes homeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes flagWave{
+  0%,100%{transform:rotate(-3.5deg)}
+  50%{transform:rotate(3.5deg)}
+}
+
+/* Quiz-Hero (praegnante Optik fuer die Quiz-Seite) */
+.quiz-hero{background:linear-gradient(135deg,var(--red) 0%,#e0454d 55%,#ff8a65 100%);border-radius:18px;padding:22px 20px;text-align:center;color:#fff;margin-bottom:16px;box-shadow:0 6px 20px rgba(205,33,42,.3);position:relative;overflow:hidden}
+.quiz-hero-icon{font-size:32px;line-height:1;margin-bottom:4px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.15))}
+.quiz-hero-sub{font-size:12.5px;font-weight:700;opacity:.95}
+#page-start .card-title{color:var(--red)}
+#page-start .chip.active{background:var(--red);border-color:var(--red)}
+#page-start .radio-opt.active{background:var(--red);border-color:var(--red)}
+#page-start .slider-val{color:var(--red)}
+#page-start input[type=range]{accent-color:var(--red)}
+.btn-quiz-start{background:linear-gradient(135deg,var(--red),#ff6b6b);color:#fff;box-shadow:0 4px 14px rgba(205,33,42,.4);font-size:17px;letter-spacing:.3px}
+.btn-quiz-start:active{background:#b21b23}
+
+nav{display:flex;gap:6px;margin-top:14px}
+nav button{flex:1;padding:10px;border-radius:10px;border:none;background:#fff;box-shadow:var(--shadow);font-size:12px;font-weight:700;color:var(--text-light);cursor:pointer}
+nav button.active{background:var(--green);color:#fff}
+
+/* Lernliste */
+.ll-tabs{display:flex;gap:8px;margin-bottom:14px}
+.ll-tab{flex:1;padding:10px;border-radius:10px;border:1.5px solid var(--border);text-align:center;font-size:13px;font-weight:700;cursor:pointer;color:var(--text-light);background:#fff}
+.ll-tab.active{background:var(--green);border-color:var(--green);color:#fff}
+.ll-kat-title{font-size:11px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;margin:0 0 6px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.ll-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:5px 0;font-size:13px}
+.ll-row .ll-it{font-weight:700;flex:1}
+.ll-row .ll-de{color:var(--text-light);flex:1;text-align:right}
+.ll-row-actions{display:flex;gap:2px;flex-shrink:0}
+.ll-edit-btn,.ll-del-btn{background:none;border:none;font-size:14px;cursor:pointer;padding:3px 5px;line-height:1;border-radius:6px}
+.ll-edit-btn{color:var(--text-light)}
+.ll-del-btn{color:var(--danger)}
+.ll-edit-btn:active,.ll-del-btn:active{background:var(--bg)}
+.ll-verb-card{border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:10px}
+.ll-verb-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.ll-verb-hdr .ll-inf{font-size:16px;font-weight:800;color:var(--text)}
+.ll-verb-hdr .ll-mean{font-size:12px;color:var(--text-light);font-style:italic}
+.ll-forms{display:flex;flex-wrap:wrap;gap:6px}
+.ll-forms span{background:var(--bg);padding:4px 9px;border-radius:8px;font-size:12px;color:var(--text-light)}
+.ll-forms span b{color:var(--text)}
+
+#toast-container{position:fixed;top:calc(env(safe-area-inset-top) + 10px);left:50%;transform:translateX(-50%);z-index:9999}
+.toast{padding:10px 18px;border-radius:20px;color:#fff;font-size:13px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,0.2);margin-bottom:6px;background:var(--danger)}
+.toast.ok{background:var(--success)}
+.app-version{font-size:11px;font-weight:400;color:var(--text-light);vertical-align:middle;margin-left:4px}
+#install-banner{display:none;position:fixed;top:0;left:0;right:0;z-index:10000;background:#111827;color:#fff;padding:10px 14px;padding-top:calc(env(safe-area-inset-top) + 10px);font-size:13px;font-weight:600;line-height:1.4;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+#install-banner.show{display:flex;align-items:center;gap:10px}
+#install-banner .ib-text{flex:1}
+#install-banner .ib-btn{display:none;background:#fff;color:#111827;border:none;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0}
+#install-banner .ib-close{background:rgba(255,255,255,0.2);border:none;color:#fff;width:26px;height:26px;border-radius:50%;font-size:14px;cursor:pointer;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div id="toast-container"></div>
+<div id="install-banner">
+  <span class="ib-text"></span>
+  <button class="ib-btn"></button>
+  <button class="ib-close" title="Schließen">&#10005;</button>
+</div>
+<div id="app">
+
+  <header>
+    <div class="header-title">
+      <h1><span class="flag"></span>Vokabeltrainer <span id="app-version" class="app-version"></span></h1>
+      <div class="header-tagline">Latein</div>
+    </div>
+    <div>
+      <button class="icon-btn icon-btn-verwaltung" onclick="gotoPage('verwaltung')" title="Verwaltung">&#9881;</button>
+      <button class="icon-btn icon-btn-hilfe" onclick="openHelpModal()" title="Hilfe">?</button>
+    </div>
+  </header>
+
+  <!-- STARTSEITE (Home-Splash mit 2 Startbuttons) -->
+  <div class="page active" id="page-home">
+    <div class="home-hero">
+      <svg class="home-flag" viewBox="0 0 150 108" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="poleGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8a8f98"/>
+            <stop offset="45%" stop-color="#e8ebef"/>
+            <stop offset="100%" stop-color="#6b7078"/>
+          </linearGradient>
+          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f3d98a"/>
+            <stop offset="55%" stop-color="#c9a227"/>
+            <stop offset="100%" stop-color="#8a6a1c"/>
+          </linearGradient>
+          <radialGradient id="medallionFill" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#8f3242"/>
+            <stop offset="55%" stop-color="#6e2430"/>
+            <stop offset="100%" stop-color="#4a1620"/>
+          </radialGradient>
+        </defs>
+        <rect x="26" y="8" width="7" height="96" rx="3.5" fill="url(#poleGrad)"/>
+        <circle cx="29.5" cy="8" r="7" fill="url(#poleGrad)"/>
+        <g class="flag-cloth">
+          <rect x="30" y="40" width="40" height="6" rx="3" fill="url(#goldGrad)"/>
+          <ellipse cx="87.8" cy="68.9" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-175.0 87.8 68.9)"/>
+          <ellipse cx="79.4" cy="66.7" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-155.0 79.4 66.7)"/>
+          <ellipse cx="72.3" cy="61.7" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-135.0 72.3 61.7)"/>
+          <ellipse cx="67.3" cy="54.6" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-115.0 67.3 54.6)"/>
+          <ellipse cx="65.1" cy="46.2" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-95.0 65.1 46.2)"/>
+          <ellipse cx="65.9" cy="37.5" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-75.0 65.9 37.5)"/>
+          <ellipse cx="69.5" cy="29.7" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-55.0 69.5 29.7)"/>
+          <ellipse cx="75.7" cy="23.5" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-35.0 75.7 23.5)"/>
+          <ellipse cx="83.5" cy="19.9" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-15.0 83.5 19.9)"/>
+          <ellipse cx="92.2" cy="68.9" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-185.0 92.2 68.9)"/>
+          <ellipse cx="100.6" cy="66.7" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-205.0 100.6 66.7)"/>
+          <ellipse cx="107.7" cy="61.7" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-225.0 107.7 61.7)"/>
+          <ellipse cx="112.7" cy="54.6" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-245.0 112.7 54.6)"/>
+          <ellipse cx="114.9" cy="46.2" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(-265.0 114.9 46.2)"/>
+          <ellipse cx="114.1" cy="37.5" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(75.0 114.1 37.5)"/>
+          <ellipse cx="110.5" cy="29.7" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(55.0 110.5 29.7)"/>
+          <ellipse cx="104.3" cy="23.5" rx="3.1" ry="9" fill="#B8912F" stroke="#7a5a15" stroke-width="0.6" transform="rotate(35.0 104.3 23.5)"/>
+          <ellipse cx="96.5" cy="19.9" rx="3.1" ry="9" fill="#D8B44A" stroke="#7a5a15" stroke-width="0.6" transform="rotate(15.0 96.5 19.9)"/>
+          <path d="M83,66 C86,72 82,78 90,80 C98,78 94,72 97,66" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="90" cy="44" r="22" fill="url(#medallionFill)" stroke="url(#goldGrad)" stroke-width="3"/>
+          <text x="90" y="49" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="15" letter-spacing="1.5" fill="#e8c979">SPQR</text>
+        </g>
+      </svg>
+      <div class="home-title">Vokabeltrainer<span class="home-title-accent">Latein</span></div>
+      <div class="home-tagline">Vokabeln lernen, die hängen bleiben &#10024;</div>
+    </div>
+    <div class="home-spheres">
+      <div class="home-sphere-col">
+        <button class="home-sphere home-sphere-liste" onclick="gotoPage('liste')">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="34" height="24" rx="4" fill="#ffffff" opacity=".55" transform="rotate(-8 27 32)"/>
+            <rect x="18" y="20" width="34" height="24" rx="4" fill="#ffffff"/>
+            <line x1="24" y1="30" x2="46" y2="30" stroke="#00b85c" stroke-width="3" stroke-linecap="round"/>
+            <line x1="24" y1="37" x2="40" y2="37" stroke="#bfe9d2" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="home-sphere-caption">Lernbox</div>
+        <div class="home-sphere-sub">Vokabeln entdecken &amp; pauken</div>
+      </div>
+      <div class="home-sphere-col">
+        <button class="home-sphere home-sphere-quiz" onclick="gotoPage('start')">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="38,8 20,34 30,34 24,56 46,26 34,26" fill="#ffffff" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="home-sphere-caption">Quiz</div>
+        <div class="home-sphere-sub">Dein Wissen auf die Probe stellen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ-SETUP (Folgeseite) -->
+  <div class="page" id="page-start">
+    <div class="page-hdr"><button class="back-btn" onclick="gotoPage('home')" title="Zurück">&#8249;</button><h2>Quiz</h2></div>
+    <div class="quiz-hero">
+      <div class="quiz-hero-icon">&#127919;</div>
+      <div class="quiz-hero-sub">Vokabeln abfragen &amp; Fortschritt testen</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Kategorien</div>
+      <div class="chip-grid" id="start-kategorien"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Richtung</div>
+      <div class="radio-row" id="start-richtung">
+        <div class="radio-opt active" data-dir="it-de">LA &#8594; DE</div>
+        <div class="radio-opt" data-dir="de-it">DE &#8594; LA</div>
+        <div class="radio-opt" data-dir="mix">Gemischt</div>
+        <div class="radio-opt" data-dir="konjugation">Verbformen <span id="konj-lock-start" style="display:none">&#128274;</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Anzahl Fragen</div>
+      <div class="slider-row">
+        <input type="range" id="start-anzahl" min="5" max="50" step="5" value="15">
+        <div class="slider-val" id="start-anzahl-val">15</div>
+      </div>
+    </div>
+    <button class="btn btn-quiz-start" onclick="startQuiz()">&#127919; Training starten</button>
+  </div>
+
+  <button class="fab" id="fab-add" onclick="openAddModal()" title="Vokabel hinzufügen">&#43;</button>
+
+  <!-- QUIZ -->
+  <div class="page" id="page-quiz">
+    <div id="quiz-progress">Frage 1 / 15 &middot; Richtig: 0</div>
+    <div id="quiz-progress-bar"><div id="quiz-progress-fill" style="width:0%"></div></div>
+    <div class="quiz-card">
+      <div class="quiz-lang-badge" id="quiz-badge">Latein</div>
+      <div class="quiz-word-row"><div class="quiz-word" id="quiz-word">–</div><button class="speak-btn" id="quiz-speak-btn" onclick="speakQuizWord()" title="Aussprache anhören">&#128266;</button></div>
+      <input type="text" class="quiz-input" id="quiz-input" placeholder="Übersetzung eingeben …" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <div class="quiz-reaction" id="quiz-reaction"></div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <div class="quiz-forms" id="quiz-forms"></div>
+      <div class="quiz-actions">
+        <button class="btn btn-secondary" onclick="quizAbbrechen()">Abbrechen</button>
+        <button class="btn btn-primary" id="quiz-check-btn" onclick="quizCheck()">Prüfen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ERGEBNIS -->
+  <div class="page" id="page-ergebnis">
+    <div class="page-hdr"><button class="back-btn" onclick="gotoPage('start')" title="Zurück">&#8249;</button><h2>Ergebnis</h2></div>
+    <div class="card" style="text-align:center">
+      <div class="result-score" id="result-score">0/0</div>
+      <div class="result-sub" id="result-sub">0% richtig</div>
+    </div>
+    <div class="card" id="result-list-card" style="display:none">
+      <div class="card-title">Falsch beantwortet</div>
+      <div class="result-list" id="result-list"></div>
+    </div>
+    <button class="btn btn-primary" onclick="wiederholeFalsche()" id="btn-wiederholen" style="display:none">Falsche nochmal üben</button>
+  </div>
+
+  <!-- LERNLISTE -->
+  <div class="page" id="page-liste">
+    <div class="page-hdr"><button class="back-btn" onclick="gotoPage('home')" title="Zurück">&#8249;</button><h2>&#128214; Lernbox</h2></div>
+    <div class="card">
+      <div class="form-row" style="margin-bottom:0">
+        <input type="text" id="ll-suche" placeholder="&#128269; Vokabel suchen …" autocomplete="off" oninput="onLlSucheInput()">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Kategorien</div>
+      <div class="chip-grid" id="ll-kategorien"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Richtung</div>
+      <div class="radio-row" id="ll-richtung">
+        <div class="radio-opt active" data-dir="it-de">LA &#8594; DE</div>
+        <div class="radio-opt" data-dir="de-it">DE &#8594; LA</div>
+      </div>
+    </div>
+    <div class="ll-tabs">
+      <div class="ll-tab active" data-lltab="vokabeln">Vokabeln</div>
+      <div class="ll-tab" data-lltab="konjugation">Verbformen <span id="konj-lock-ll" style="display:none">&#128274;</span></div>
+    </div>
+    <div class="card" style="flex:1;overflow-y:auto" id="ll-content"></div>
+  </div>
+
+  <!-- VERWALTUNG -->
+  <div class="page" id="page-verwaltung">
+    <div class="page-hdr"><button class="back-btn" onclick="gotoPage('home')" title="Zurück">&#8249;</button><h2>Verwaltung</h2></div>
+    <button class="btn btn-primary" onclick="openAddModal()" style="margin-bottom:8px">&#43; Neue Vokabel hinzufügen</button>
+    <button class="btn btn-secondary" onclick="openKatModal()" style="margin-bottom:8px">&#43; Neue Kategorie anlegen</button>
+    <button class="btn btn-secondary" onclick="openOcrModal()" style="margin-bottom:14px">&#128248; Vokabeln aus Foto (OCR)</button>
+    <div class="card" style="margin-bottom:14px">
+      <div class="card-title">Kategorien</div>
+      <div id="kat-list"></div>
+    </div>
+    <div class="card" style="flex:1;overflow-y:auto">
+      <div class="card-title">Alle Vokabeln (<span id="vk-count">0</span>)</div>
+      <div class="form-row">
+        <input type="text" id="vk-suche" placeholder="&#128269; Vokabel suchen …" autocomplete="off" oninput="onVkSucheInput()">
+      </div>
+      <div id="vk-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- LIZENZ-MODAL -->
+<dialog id="lizenz-modal">
+  <div class="modal-body">
+    <div class="modal-title">&#128274; Vollversion freischalten</div>
+    <p style="font-size:14px;line-height:1.6;margin:0 0 12px">In der Testversion sind Verbformen-Übungen, Training über 10 Vokabeln je Kategorie hinaus sowie das Speichern eigener Vokabeln/Kategorien gesperrt. Die Vollversion schaltet alles frei — einmalig 9,95&nbsp;€, kein Abo.</p>
+    <div class="modal-actions" style="margin-bottom:14px">
+      <a class="btn btn-primary" href="https://gumroad.com/l/vokabeltrainer-la" target="_blank" rel="noopener" style="width:100%;text-align:center;text-decoration:none;box-sizing:border-box">Jetzt kaufen (9,95&nbsp;€)</a>
+    </div>
+    <div class="form-row">
+      <input type="text" id="lizenz-code-input" placeholder="Freischalt-Code eingeben" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeLizenzModal()">Später</button>
+      <button class="btn btn-primary" onclick="pruefeLizenzCode()">Freischalten</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- HILFE-MODAL -->
+<dialog id="help-modal">
+  <div class="modal-body" style="max-height:74vh;overflow-y:auto">
+    <div class="modal-title">👋 So funktioniert's</div>
+
+    <p style="font-size:13px;line-height:1.6;margin:0 0 14px;color:var(--text-light)">
+      Diese App funktioniert wie klassische Karteikarten: du siehst ein Wort, versuchst dich an die Übersetzung zu erinnern, tippst sie ein — und lernst so mit der Zeit alle Vokabeln auswendig.
+    </p>
+
+    <p style="font-size:13px;line-height:1.6;margin:0 0 14px;color:var(--text-light)">
+      Auf der Startseite hast du zwei große Buttons: <b>📖 Lernbox</b> zum Durchstöbern und Bearbeiten deiner Vokabeln, und <b>🎯 Quiz</b> zum Abfragen. Über den Zurück-Pfeil oben links kommst du von beiden Seiten jederzeit zur Startseite zurück.
+    </p>
+
+    <p style="font-size:13px;line-height:1.6;margin:0 0 14px;color:var(--text-light)">
+      Du kannst die Antwort auch per Spracheingabe eintippen — einfach den Mikrofon-Button auf der Tastatur deines Handys drücken. Dabei findet allerdings keine Schreibprüfung statt.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">🎯 Training starten</p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      <b>Kategorien:</b> Auf eine Kategorie tippen wählt <i>nur diese eine</i> aus (alle anderen werden abgewählt). Nochmal draufhalten zeigt wieder alle Kategorien zusammen. So lernst du gezielt einen Themenbereich (z.B. nur "Essen") oder alles gemischt.
+    </p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      <b>Richtung:</b> Vier Modi zur Auswahl —
+      <br>• <b>Latein → Deutsch:</b> dir wird das lateinische Wort gezeigt, du tippst die deutsche Übersetzung.
+      <br>• <b>Deutsch → Latein:</b> umgekehrt, du übersetzt vom Deutschen ins Lateinische.
+      <br>• <b>Gemischt:</b> beide Richtungen wechseln sich zufällig ab — gut für fortgeschrittenes Üben.
+      <br>• <b>Verbformen:</b> statt der Übersetzung wird eine Form abgefragt (z.B. "amare — ego" → du tippst "amo"). Nur Verben mit hinterlegten Formen kommen hier vor — dieser Modus folgt in einem späteren Update mit Deklinations-/Konjugationstabellen.
+    </p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      <b>Anzahl Fragen:</b> Regler zwischen 5 und 50 Fragen pro Durchgang — je nachdem wie viel Zeit du hast.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">✏️ Während der Abfrage</p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      Antwort eintippen und mit <b>Enter</b> oder dem "Prüfen"-Button bestätigen. Groß-/Kleinschreibung spielt keine Rolle. Manche Vokabeln haben mehrere richtige Antworten (z.B. Synonyme) — jede davon wird als richtig erkannt. Nach jeder Antwort siehst du sofort eine große Rückmeldung (z.B. "Wooow!" oder "Oooohhh…", mit kurzem Ton) sowie bei falschen Antworten die richtige Lösung, und bei Verben mit hinterlegten Formen zusätzlich alle anderen Formen als Merkhilfe.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">🏁 Ergebnis</p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      Am Ende siehst du deine Trefferquote und eine Liste aller falsch beantworteten Vokabeln. Über <b>"Falsche nochmal üben"</b> startest du direkt eine neue Runde nur mit genau diesen Wörtern — ideal, um Lücken gezielt zu schließen.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">📖 Lernbox</p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      Alle Vokabeln zum Durchstöbern (ohne Abfrage), gruppiert nach Kategorie, mit demselben Kategorie-Filter und einem Richtungsumschalter wie beim Training. Der zweite Reiter "Verbformen" zeigt alle Verbformen als Übersicht. Über das <b>Suchfeld</b> oben findest du sofort jede Vokabel, egal in welcher Kategorie — die Suche hat Vorrang vor dem Kategorie-Filter. Bei jeder Vokabel kannst du direkt <b>✏️ tippen, um einen Fehler zu korrigieren</b>, oder <b>🗑, um sie zu löschen</b> — praktisch, wenn dir beim Lernen ein Tippfehler auffällt.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">🔊 Aussprache</p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      Lautsprecher-Symbol antippen, um das Wort laut vorlesen zu lassen — nutzt die eingebauten Stimmen deines Handys, funktioniert auch offline. Da es kaum echte lateinische Stimmen gibt, wird eine italienische Stimme als lautliche Annäherung verwendet.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">⚙ Verwaltung</p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      Eigene Vokabeln über den <b>+</b>-Button hinzufügen (die App warnt schon beim Eintippen, falls das Wort bereits existiert). Über <b>"+ Neue Kategorie anlegen"</b> legst du eine leere Kategorie ganz ohne Vokabel an. Mit <b>"📷 Vokabeln aus Foto (OCR)"</b> fotografierst du eine Vokabelseite — die App erkennt den Text automatisch, du korrigierst bei Bedarf und übernimmst alle Wortpaare auf einmal in eine Kategorie. Jede Vokabel lässt sich per Dropdown einer anderen Kategorie zuordnen, per <b>✏️</b> inhaltlich korrigieren und per <b>🗑</b> löschen. Kategorien selbst lassen sich nur löschen, wenn sie leer sind (keine Vokabeln mehr enthalten) — so geht nichts versehentlich verloren.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">🔒 Testversion</p>
+    <p style="font-size:13px;line-height:1.6;margin:0 0 8px">
+      In der Testversion kannst du dir alle Vokabeln in der Lernliste ansehen, aber im Training werden nur die ersten 10 Vokabeln je Kategorie abgefragt. Verbformen-Training sowie das Speichern eigener Vokabeln und Kategorien sind ebenfalls Teil der Vollversion (einmalig 9,95&nbsp;€, kein Abo) — den Freischalt-Code erhältst du beim Kauf.
+    </p>
+
+    <p style="font-size:14px;font-weight:800;margin:14px 0 4px">📴 Offline nutzen / installieren</p>
+    <p style="font-size:13px;line-height:1.6;margin:0">
+      Am besten installierst du die App auf dem Homescreen: in Safari auf das Teilen-Symbol tippen, dann <b>"Zum Home-Bildschirm"</b> auswählen. Danach öffnet sie sich wie eine echte App — ganz ohne Browserleiste — und funktioniert komplett offline, auch unterwegs ohne Internet. Deine Vokabeln und dein Fortschritt bleiben dabei immer auf diesem Gerät gespeichert.
+    </p>
+
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="closeHelpModal()" style="width:100%">Alles klar, los geht's!</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- ADD-MODAL -->
+<dialog id="add-modal">
+  <div class="modal-body">
+    <div class="modal-title">Neue Vokabel</div>
+    <div class="m-trial-hint" id="am-trial-hint" style="display:none">&#128274; Testversion: Eingabe möglich, Speichern ist Teil der Vollversion</div>
+    <div class="form-row">
+      <input type="text" id="am-it" placeholder="Latein" autocomplete="off" autocapitalize="off" oninput="clearDuplicateHint()" onblur="checkDuplicate()">
+      <div class="m-err" id="am-dup-hint"></div>
+      <input type="text" id="am-de" placeholder="Deutsch" autocomplete="off">
+      <select id="am-kategorie-select"></select>
+    </div>
+    <div class="m-err" id="am-err"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeAddModal()">Abbrechen</button>
+      <button class="btn btn-primary" onclick="submitAddModal()">Speichern</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- EDIT-MODAL (Korrektur bestehender Vokabel) -->
+<dialog id="edit-modal">
+  <div class="modal-body">
+    <div class="modal-title">Vokabel korrigieren</div>
+    <div class="form-row">
+      <input type="text" id="em-it" placeholder="Latein" autocomplete="off" autocapitalize="off">
+      <input type="text" id="em-de" placeholder="Deutsch" autocomplete="off">
+    </div>
+    <div class="m-err" id="em-err"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeEditModal()">Abbrechen</button>
+      <button class="btn btn-primary" onclick="submitEditModal()">Speichern</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- KATEGORIE-MODAL -->
+<dialog id="kat-modal">
+  <div class="modal-body">
+    <div class="modal-title">Neue Kategorie</div>
+    <div class="m-trial-hint" id="km-trial-hint" style="display:none">&#128274; Testversion: Eingabe möglich, Speichern ist Teil der Vollversion</div>
+    <div class="form-row">
+      <input type="text" id="km-name" placeholder="Name der Kategorie" autocomplete="off">
+    </div>
+    <div class="m-err" id="km-err"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeKatModal()">Abbrechen</button>
+      <button class="btn btn-primary" onclick="submitKatModal()">Speichern</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- OCR-MODAL -->
+<dialog id="ocr-modal" style="width:420px">
+  <div class="modal-body" style="max-height:80vh;overflow-y:auto">
+    <div class="modal-title">&#128248; Vokabeln aus Foto</div>
+    <div class="m-trial-hint" id="ocr-trial-hint" style="display:none">&#128274; Testversion: Ausprobieren möglich, Übernehmen ist Teil der Vollversion</div>
+    <p style="font-size:12px;line-height:1.5;color:var(--text-light);margin:0 0 10px">
+      Foto von der Vokabelseite aufnehmen oder auswählen. Der erkannte Text lässt sich danach korrigieren, bevor du ihn übernimmst.
+    </p>
+    <div class="form-row">
+      <input type="file" id="ocr-file" accept="image/*" capture="environment" onchange="ocrBildGewaehlt()">
+    </div>
+    <div id="ocr-status" style="font-size:12px;color:var(--text-light);margin-bottom:8px"></div>
+    <div id="ocr-rohtext-wrap" style="display:none">
+      <div class="card-title" style="margin-top:6px">Erkannter Text (bei Bedarf korrigieren)</div>
+      <textarea id="ocr-rohtext" rows="6" style="width:100%;box-sizing:border-box;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit"></textarea>
+      <div style="font-size:11px;color:var(--text-light);margin:4px 0 10px">Pro Zeile ein Wortpaar, getrennt durch Tab, "-" oder mehrere Leerzeichen — z.B. <i>house - Haus</i></div>
+      <button class="btn btn-secondary" onclick="ocrParsen()" style="width:100%;margin-bottom:12px">In Wortpaare umwandeln</button>
+    </div>
+    <div id="ocr-kandidaten-wrap" style="display:none">
+      <div class="card-title">Kategorie für alle Wortpaare</div>
+      <div class="form-row">
+        <select id="ocr-kategorie-select"></select>
+      </div>
+      <div class="card-title">Erkannte Wortpaare (<span id="ocr-anzahl">0</span>)</div>
+      <div id="ocr-kandidaten-liste"></div>
+    </div>
+    <div class="m-err" id="ocr-err"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeOcrModal()">Schließen</button>
+      <button class="btn btn-primary" id="ocr-uebernehmen-btn" onclick="ocrAlleUebernehmen()" style="display:none">Alle übernehmen</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const SEED_VOKABELN = [
+  {"id":1,"kategorie":"Grundlagen","it":"salve","de":"Hallo (zu einer Person)"},
+  {"id":2,"kategorie":"Grundlagen","it":"salvete","de":"Hallo (zu mehreren)"},
+  {"id":3,"kategorie":"Grundlagen","it":"vale","de":"Auf Wiedersehen (zu einer Person)"},
+  {"id":4,"kategorie":"Grundlagen","it":"valete","de":"Auf Wiedersehen (zu mehreren)"},
+  {"id":5,"kategorie":"Grundlagen","it":"quaeso","de":"bitte"},
+  {"id":6,"kategorie":"Grundlagen","it":"gratias tibi ago","de":"danke"},
+  {"id":7,"kategorie":"Grundlagen","it":"ita","de":"ja"},
+  {"id":8,"kategorie":"Grundlagen","it":"minime","de":"nein"},
+  {"id":9,"kategorie":"Grundlagen","it":"amabo te","de":"bitte (dringende Bitte)"},
+  {"id":10,"kategorie":"Grundlagen","it":"quid agis","de":"wie geht es dir"},
+  {"id":11,"kategorie":"Grundlagen","it":"bene","de":"gut"},
+  {"id":12,"kategorie":"Grundlagen","it":"male","de":"schlecht"},
+  {"id":13,"kategorie":"Grundlagen","it":"fortasse","de":"vielleicht"},
+  {"id":14,"kategorie":"Grundlagen","it":"et","de":"und"},
+  {"id":15,"kategorie":"Grundlagen","it":"sed","de":"aber"},
+  {"id":16,"kategorie":"Grundlagen","it":"si","de":"wenn"},
+  {"id":17,"kategorie":"Grundlagen","it":"quia","de":"weil"},
+  {"id":18,"kategorie":"Grundlagen","it":"nunc","de":"jetzt"},
+  {"id":19,"kategorie":"Zahlen","it":"unus","de":"eins"},
+  {"id":20,"kategorie":"Zahlen","it":"duo","de":"zwei"},
+  {"id":21,"kategorie":"Zahlen","it":"tres","de":"drei"},
+  {"id":22,"kategorie":"Zahlen","it":"quattuor","de":"vier"},
+  {"id":23,"kategorie":"Zahlen","it":"quinque","de":"fünf"},
+  {"id":24,"kategorie":"Zahlen","it":"sex","de":"sechs"},
+  {"id":25,"kategorie":"Zahlen","it":"septem","de":"sieben"},
+  {"id":26,"kategorie":"Zahlen","it":"octo","de":"acht"},
+  {"id":27,"kategorie":"Zahlen","it":"novem","de":"neun"},
+  {"id":28,"kategorie":"Zahlen","it":"decem","de":"zehn"},
+  {"id":29,"kategorie":"Zahlen","it":"centum","de":"hundert"},
+  {"id":30,"kategorie":"Zahlen","it":"mille","de":"tausend"},
+  {"id":31,"kategorie":"Farben","it":"albus","de":"weiß"},
+  {"id":32,"kategorie":"Farben","it":"niger","de":"schwarz"},
+  {"id":33,"kategorie":"Farben","it":"ruber","de":"rot"},
+  {"id":34,"kategorie":"Farben","it":"viridis","de":"grün"},
+  {"id":35,"kategorie":"Farben","it":"caeruleus","de":"blau"},
+  {"id":36,"kategorie":"Farben","it":"flavus","de":"gelb"},
+  {"id":37,"kategorie":"Farben","it":"purpureus","de":"purpurn"},
+  {"id":38,"kategorie":"Farben","it":"fuscus","de":"braun"},
+  {"id":39,"kategorie":"Familie","it":"pater","de":"Vater"},
+  {"id":40,"kategorie":"Familie","it":"mater","de":"Mutter"},
+  {"id":41,"kategorie":"Familie","it":"filius","de":"Sohn"},
+  {"id":42,"kategorie":"Familie","it":"filia","de":"Tochter"},
+  {"id":43,"kategorie":"Familie","it":"frater","de":"Bruder"},
+  {"id":44,"kategorie":"Familie","it":"soror","de":"Schwester"},
+  {"id":45,"kategorie":"Familie","it":"avus","de":"Großvater"},
+  {"id":46,"kategorie":"Familie","it":"avia","de":"Großmutter"},
+  {"id":47,"kategorie":"Familie","it":"puer","de":"Junge"},
+  {"id":48,"kategorie":"Familie","it":"puella","de":"Mädchen"},
+  {"id":49,"kategorie":"Familie","it":"vir","de":"Mann"},
+  {"id":50,"kategorie":"Familie","it":"femina","de":"Frau"},
+  {"id":51,"kategorie":"Natur","it":"aqua","de":"Wasser"},
+  {"id":52,"kategorie":"Natur","it":"terra","de":"Erde"},
+  {"id":53,"kategorie":"Natur","it":"caelum","de":"Himmel"},
+  {"id":54,"kategorie":"Natur","it":"sol","de":"Sonne"},
+  {"id":55,"kategorie":"Natur","it":"luna","de":"Mond"},
+  {"id":56,"kategorie":"Natur","it":"stella","de":"Stern"},
+  {"id":57,"kategorie":"Natur","it":"mons","de":"Berg"},
+  {"id":58,"kategorie":"Natur","it":"silva","de":"Wald"},
+  {"id":59,"kategorie":"Natur","it":"flumen","de":"Fluss"},
+  {"id":60,"kategorie":"Natur","it":"mare","de":"Meer"},
+  {"id":61,"kategorie":"Natur","it":"ventus","de":"Wind"},
+  {"id":62,"kategorie":"Natur","it":"ignis","de":"Feuer"},
+  {"id":63,"kategorie":"Natur","it":"arbor","de":"Baum"},
+  {"id":64,"kategorie":"Natur","it":"flos","de":"Blume"},
+  {"id":65,"kategorie":"Essen","it":"panis","de":"Brot"},
+  {"id":66,"kategorie":"Essen","it":"vinum","de":"Wein"},
+  {"id":67,"kategorie":"Essen","it":"lac","de":"Milch"},
+  {"id":68,"kategorie":"Essen","it":"caro","de":"Fleisch"},
+  {"id":69,"kategorie":"Essen","it":"piscis","de":"Fisch"},
+  {"id":70,"kategorie":"Essen","it":"mel","de":"Honig"},
+  {"id":71,"kategorie":"Essen","it":"pomum","de":"Frucht"},
+  {"id":72,"kategorie":"Essen","it":"oleum","de":"Öl"},
+  {"id":73,"kategorie":"Essen","it":"sal","de":"Salz"},
+  {"id":74,"kategorie":"Essen","it":"cibus","de":"Speise"},
+  {"id":75,"kategorie":"Zeit","it":"dies","de":"Tag"},
+  {"id":76,"kategorie":"Zeit","it":"nox","de":"Nacht"},
+  {"id":77,"kategorie":"Zeit","it":"hora","de":"Stunde"},
+  {"id":78,"kategorie":"Zeit","it":"annus","de":"Jahr"},
+  {"id":79,"kategorie":"Zeit","it":"mensis","de":"Monat"},
+  {"id":80,"kategorie":"Zeit","it":"hodie","de":"heute"},
+  {"id":81,"kategorie":"Zeit","it":"heri","de":"gestern"},
+  {"id":82,"kategorie":"Zeit","it":"cras","de":"morgen"},
+  {"id":83,"kategorie":"Zeit","it":"semper","de":"immer"},
+  {"id":84,"kategorie":"Zeit","it":"numquam","de":"nie"},
+  {"id":85,"kategorie":"Zeit","it":"saepe","de":"oft"},
+  {"id":86,"kategorie":"Schule","it":"schola","de":"Schule"},
+  {"id":87,"kategorie":"Schule","it":"magister","de":"Lehrer"},
+  {"id":88,"kategorie":"Schule","it":"discipulus","de":"Schüler"},
+  {"id":89,"kategorie":"Schule","it":"liber","de":"Buch"},
+  {"id":90,"kategorie":"Schule","it":"littera","de":"Buchstabe"},
+  {"id":91,"kategorie":"Schule","it":"verbum","de":"Wort"},
+  {"id":92,"kategorie":"Schule","it":"lingua","de":"Sprache"},
+  {"id":93,"kategorie":"Schule","it":"charta","de":"Papier"},
+  {"id":94,"kategorie":"Schule","it":"stilus","de":"Schreibgriffel"},
+  {"id":95,"kategorie":"Körper","it":"caput","de":"Kopf"},
+  {"id":96,"kategorie":"Körper","it":"oculus","de":"Auge"},
+  {"id":97,"kategorie":"Körper","it":"manus","de":"Hand"},
+  {"id":98,"kategorie":"Körper","it":"pes","de":"Fuß"},
+  {"id":99,"kategorie":"Körper","it":"cor","de":"Herz"},
+  {"id":100,"kategorie":"Körper","it":"os","de":"Mund"},
+  {"id":101,"kategorie":"Körper","it":"auris","de":"Ohr"},
+  {"id":102,"kategorie":"Körper","it":"nasus","de":"Nase"},
+  {"id":103,"kategorie":"Tiere","it":"canis","de":"Hund"},
+  {"id":104,"kategorie":"Tiere","it":"felis","de":"Katze"},
+  {"id":105,"kategorie":"Tiere","it":"equus","de":"Pferd"},
+  {"id":106,"kategorie":"Tiere","it":"avis","de":"Vogel"},
+  {"id":107,"kategorie":"Tiere","it":"leo","de":"Löwe"},
+  {"id":108,"kategorie":"Tiere","it":"ursus","de":"Bär"},
+  {"id":109,"kategorie":"Tiere","it":"serpens","de":"Schlange"},
+  {"id":110,"kategorie":"Tiere","it":"bos","de":"Rind"},
+  {"id":111,"kategorie":"Adjektive","it":"magnus","de":"groß"},
+  {"id":112,"kategorie":"Adjektive","it":"parvus","de":"klein"},
+  {"id":113,"kategorie":"Adjektive","it":"bonus","de":"gut"},
+  {"id":114,"kategorie":"Adjektive","it":"malus","de":"schlecht"},
+  {"id":115,"kategorie":"Adjektive","it":"novus","de":"neu"},
+  {"id":116,"kategorie":"Adjektive","it":"longus","de":"lang"},
+  {"id":117,"kategorie":"Adjektive","it":"altus","de":"hoch"},
+  {"id":118,"kategorie":"Adjektive","it":"multus","de":"viel"},
+  {"id":119,"kategorie":"Adjektive","it":"omnis","de":"jeder"},
+  {"id":120,"kategorie":"Adjektive","it":"pulcher","de":"schön"},
+  {"id":121,"kategorie":"Personalpronomen","it":"ego","de":"ich"},
+  {"id":122,"kategorie":"Personalpronomen","it":"tu","de":"du"},
+  {"id":123,"kategorie":"Personalpronomen","it":"is","de":"er"},
+  {"id":124,"kategorie":"Personalpronomen","it":"ea","de":"sie"},
+  {"id":125,"kategorie":"Personalpronomen","it":"id","de":"es"},
+  {"id":126,"kategorie":"Personalpronomen","it":"nos","de":"wir"},
+  {"id":127,"kategorie":"Personalpronomen","it":"vos","de":"ihr"},
+  {"id":128,"kategorie":"Personalpronomen","it":"ei","de":"sie (Plural)"},
+  {"id":129,"kategorie":"Verben","it":"esse","de":"sein"},
+  {"id":130,"kategorie":"Verben","it":"habere","de":"haben"},
+  {"id":131,"kategorie":"Verben","it":"amare","de":"lieben"},
+  {"id":132,"kategorie":"Verben","it":"videre","de":"sehen"},
+  {"id":133,"kategorie":"Verben","it":"audire","de":"hören"},
+  {"id":134,"kategorie":"Verben","it":"dicere","de":"sagen"},
+  {"id":135,"kategorie":"Verben","it":"facere","de":"machen"},
+  {"id":136,"kategorie":"Verben","it":"venire","de":"kommen"},
+  {"id":137,"kategorie":"Verben","it":"ire","de":"gehen"},
+  {"id":138,"kategorie":"Verben","it":"dare","de":"geben"},
+  {"id":139,"kategorie":"Verben","it":"legere","de":"lesen"},
+  {"id":140,"kategorie":"Verben","it":"scribere","de":"schreiben"},
+  {"id":141,"kategorie":"Verben","it":"vocare","de":"rufen"},
+  {"id":142,"kategorie":"Verben","it":"laudare","de":"loben"},
+  {"id":143,"kategorie":"Verben","it":"pugnare","de":"kämpfen"},
+  {"id":144,"kategorie":"Verben","it":"currere","de":"laufen"},
+  {"id":145,"kategorie":"Verben","it":"sedere","de":"sitzen"},
+  {"id":146,"kategorie":"Verben","it":"stare","de":"stehen"},
+  {"id":147,"kategorie":"Verben","it":"dormire","de":"schlafen"},
+  {"id":148,"kategorie":"Verben","it":"edere","de":"essen"},
+  {"id":149,"kategorie":"Verben","it":"bibere","de":"trinken"},
+  {"id":150,"kategorie":"Verben","it":"scire","de":"wissen"},
+  {"id":151,"kategorie":"Verben","it":"putare","de":"glauben"},
+  {"id":152,"kategorie":"Verben","it":"vivere","de":"leben"},
+  {"id":153,"kategorie":"Verben","it":"mori","de":"sterben"}
+];
+
+const APP_VERSION = '1.9';
+const LS_KEY = 'vokabeltrainer_la_vokabeln';
+const LS_INSTALL_KEY = 'vokabeltrainer_la_install_datum';
+const LS_LIZENZ_KEY = 'vokabeltrainer_la_lizenz';
+const LS_LETZTE_KAT_KEY = 'vokabeltrainer_la_letzte_kategorie';
+const TESTPHASE_TAGE = 14;
+const TRIAL_LIMIT_PRO_KATEGORIE = 10;
+// TODO Klaus: echten Gumroad-Produkt-Permalink eintragen, sobald das Produkt angelegt ist.
+const GUMROAD_PERMALINK = 'vokabeltrainer-es';
+// Master-Code fuer Klaus selbst (Eigennutzung/Tests), umgeht die Gumroad-Pruefung komplett.
+const MASTER_CODE = 'ktpunkt-master-2026';
+
+// ── LIZENZ / TESTPHASE ────────────────────────────────────────────────────────
+function pruefeBestandsnutzer() {
+  if (localStorage.getItem(LS_INSTALL_KEY)) return;
+  const hatteSchonDaten = !!localStorage.getItem(LS_KEY);
+  localStorage.setItem(LS_INSTALL_KEY, String(Date.now()));
+  if (hatteSchonDaten) {
+    localStorage.setItem(LS_LIZENZ_KEY, JSON.stringify({ freigeschaltet: true, grund: 'bestandsnutzer' }));
+  }
+}
+
+function istFreigeschaltet() {
+  try { return !!JSON.parse(localStorage.getItem(LS_LIZENZ_KEY) || '{}').freigeschaltet; }
+  catch (e) { return false; }
+}
+
+function tageSeitInstall() {
+  const installDatum = parseInt(localStorage.getItem(LS_INSTALL_KEY), 10) || Date.now();
+  return Math.floor((Date.now() - installDatum) / 86400000);
+}
+
+function updateLizenzUI() {
+  const frei = istFreigeschaltet();
+  document.getElementById('konj-lock-start').style.display = frei ? 'none' : 'inline';
+  document.getElementById('konj-lock-ll').style.display = frei ? 'none' : 'inline';
+}
+
+function openLizenzModal() {
+  document.getElementById('lizenz-modal').showModal();
+}
+
+function closeLizenzModal() {
+  document.getElementById('lizenz-modal').close();
+}
+
+function pruefeTestphase() {
+  if (!istFreigeschaltet() && tageSeitInstall() >= TESTPHASE_TAGE) {
+    openLizenzModal();
+  }
+}
+
+function trialBegrenzterPool(pool) {
+  const byKat = {};
+  pool.forEach(v => { (byKat[v.kategorie] = byKat[v.kategorie] || []).push(v); });
+  return Object.values(byKat).flatMap(liste =>
+    liste.slice().sort((a, b) => a.id - b.id).slice(0, TRIAL_LIMIT_PRO_KATEGORIE)
+  );
+}
+
+async function pruefeLizenzCode() {
+  const input = document.getElementById('lizenz-code-input');
+  const code = input.value.trim();
+  if (!code) { toast('Bitte Code eingeben'); return; }
+  if (code.toLowerCase() === MASTER_CODE.toLowerCase()) {
+    localStorage.setItem(LS_LIZENZ_KEY, JSON.stringify({ freigeschaltet: true, grund: 'master' }));
+    toast('Freigeschaltet! Viel Erfolg beim Lernen 🎉', 'ok');
+    closeLizenzModal();
+    updateLizenzUI();
+    return;
+  }
+  try {
+    const resp = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ product_permalink: GUMROAD_PERMALINK, license_key: code })
+    });
+    const data = await resp.json();
+    if (data.success) {
+      localStorage.setItem(LS_LIZENZ_KEY, JSON.stringify({ freigeschaltet: true, code }));
+      toast('Freigeschaltet! Viel Erfolg beim Lernen 🎉', 'ok');
+      closeLizenzModal();
+      updateLizenzUI();
+    } else {
+      toast('Code ungültig — bitte prüfen');
+    }
+  } catch (e) {
+    toast('Prüfung fehlgeschlagen — Internetverbindung nötig');
+  }
+}
+
+const S = { vokabeln: [], kategorien: [], selectedKat: new Set(), richtung: 'it-de', anzahl: 15,
+            quizList: [], quizIndex: 0, richtig: 0, falscheListe: [], llTab: 'vokabeln', llRichtung: 'it-de',
+            llSuche: '', vkSuche: '', ocrKandidaten: [], editId: null };
+
+function sucheTreffer(v, suche) {
+  const s = suche.trim().toLowerCase();
+  if (!s) return true;
+  return v.it.toLowerCase().includes(s) || v.de.toLowerCase().includes(s);
+}
+
+// ── Lokale Speicherung (funktioniert komplett offline, keine Serverabhängigkeit) ──
+function lsRepairFormen(list) {
+  const seedByKey = new Map(SEED_VOKABELN.filter(v => v.formen).map(v => [vokabelKey(v), v.formen]));
+  let geaendert = false;
+  const repariert = list.map(v => {
+    if (!v.formen && seedByKey.has(vokabelKey(v))) { geaendert = true; return { ...v, formen: seedByKey.get(vokabelKey(v)) }; }
+    return v;
+  });
+  if (geaendert) lsSave(repariert);
+  return repariert;
+}
+
+function lsLoad() {
+  const raw = localStorage.getItem(LS_KEY);
+  if (!raw) {
+    localStorage.setItem(LS_KEY, JSON.stringify(SEED_VOKABELN));
+    return JSON.parse(JSON.stringify(SEED_VOKABELN));
+  }
+  try { return lsRepairFormen(JSON.parse(raw)); } catch(e) { return JSON.parse(JSON.stringify(SEED_VOKABELN)); }
+}
+function lsSave(list) { localStorage.setItem(LS_KEY, JSON.stringify(list)); }
+
+const LS_KAT_EXTRA_KEY = 'vokabeltrainer_la_kategorien_extra';
+function lsKategorienExtraLoad() {
+  try { return JSON.parse(localStorage.getItem(LS_KAT_EXTRA_KEY) || '[]'); } catch(e) { return []; }
+}
+function lsKategorienExtraAdd(name) {
+  const list = lsKategorienExtraLoad();
+  if (!list.includes(name)) { list.push(name); localStorage.setItem(LS_KAT_EXTRA_KEY, JSON.stringify(list)); }
+}
+function lsKategorien(list) {
+  return [...new Set([...list.map(v => v.kategorie), ...lsKategorienExtraLoad()])].sort();
+}
+function lsUpdateKategorie(id, neueKategorie) {
+  const list = lsLoad();
+  const v = list.find(x => x.id === id);
+  if (v) { v.kategorie = neueKategorie; lsSave(list); }
+}
+
+function lsAdd({kategorie, it, de}) {
+  const list = lsLoad();
+  const neueId = Math.max(0, ...list.map(v => v.id)) + 1;
+  const eintrag = { id: neueId, kategorie, it, de };
+  list.push(eintrag);
+  lsSave(list);
+  return eintrag;
+}
+function lsDelete(id) {
+  const list = lsLoad().filter(v => v.id !== id);
+  lsSave(list);
+}
+function lsUpdateWort(id, it, de) {
+  const list = lsLoad();
+  const v = list.find(x => x.id === id);
+  if (v) { v.it = it; v.de = de; lsSave(list); }
+}
+
+// ── SPRACHAUSGABE (Web Speech API, kostenlos, funktioniert offline mit Handy-eigenen Stimmen) ──
+// iOS lädt die Stimmenliste asynchron nach — deshalb schon beim Start einmal abrufen
+// und auf 'voiceschanged' warten, damit der erste Tap auf den Lautsprecher nicht leer läuft.
+function initSpeech() {
+  if (!('speechSynthesis' in window)) return;
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+}
+function speak(text, lang) {
+  if (!('speechSynthesis' in window) || !text) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  // Kaum ein Browser/Betriebssystem bringt eine echte lateinische Stimme mit —
+  // it-IT liegt lautlich am naechsten (aehnliche Vokal-/Konsonantenwerte wie die
+  // im Unterricht ueblichen Aussprache-Konventionen) und wird deshalb als
+  // Naeherung verwendet statt einer zufaelligen Systemstandard-Stimme.
+  u.lang = lang === 'la' ? 'it-IT' : lang;
+  u.rate = 0.85;
+  speechSynthesis.speak(u);
+}
+function speakQuizWord() {
+  if (S.quizSpeak) speak(S.quizSpeak.text, S.quizSpeak.lang);
+}
+function escJs(s) {
+  return String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+}
+
+function toast(msg, type='err') {
+  const c = document.getElementById('toast-container');
+  const t = document.createElement('div');
+  t.className = 'toast' + (type === 'ok' ? ' ok' : ''); t.textContent = msg; c.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+
+function gotoPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('fab-add').style.display = (name === 'start' || name === 'liste' || name === 'verwaltung') ? 'flex' : 'none';
+  if (name === 'verwaltung') renderVerwaltung();
+  if (name === 'start') renderStart();
+  if (name === 'liste') renderLernliste();
+}
+
+async function appInit() {
+  document.getElementById('app-version').textContent = 'v' + APP_VERSION;
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(reg => reg.update()).catch(()=>{});
+    let refreshingNachUpdate = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshingNachUpdate) return;
+      refreshingNachUpdate = true;
+      window.location.reload();
+    });
+  }
+  initSpeech();
+  pruefeBestandsnutzer();
+  S.vokabeln = lsLoad();
+  S.kategorien = lsKategorien(S.vokabeln);
+  S.selectedKat = new Set(S.kategorien);
+  renderStart();
+  renderLernliste();
+  document.getElementById('fab-add').style.display = 'none';
+  updateLizenzUI();
+  pruefeTestphase();
+
+  document.getElementById('start-anzahl').addEventListener('input', e => {
+    document.getElementById('start-anzahl-val').textContent = e.target.value;
+  });
+  document.querySelectorAll('#start-richtung .radio-opt').forEach(el => {
+    el.addEventListener('click', () => {
+      if (el.dataset.dir === 'konjugation' && !istFreigeschaltet()) { openLizenzModal(); return; }
+      document.querySelectorAll('#start-richtung .radio-opt').forEach(x => x.classList.remove('active'));
+      el.classList.add('active');
+      S.richtung = el.dataset.dir;
+    });
+  });
+  document.getElementById('quiz-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') quizCheck();
+  });
+  document.querySelectorAll('.ll-tab').forEach(el => {
+    el.addEventListener('click', () => {
+      if (el.dataset.lltab === 'konjugation' && !istFreigeschaltet()) { openLizenzModal(); return; }
+      document.querySelectorAll('.ll-tab').forEach(x => x.classList.remove('active'));
+      el.classList.add('active');
+      S.llTab = el.dataset.lltab;
+      renderLernliste();
+    });
+  });
+  document.querySelectorAll('#ll-richtung .radio-opt').forEach(el => {
+    el.addEventListener('click', () => {
+      document.querySelectorAll('#ll-richtung .radio-opt').forEach(x => x.classList.remove('active'));
+      el.classList.add('active');
+      S.llRichtung = el.dataset.dir;
+      renderLernliste();
+    });
+  });
+}
+
+// ── LERNLISTE ─────────────────────────────────────────────────────────────────
+function renderLernlisteKategorien() {
+  const wrap = document.getElementById('ll-kategorien');
+  wrap.innerHTML = S.kategorien.map(k =>
+    `<div class="chip ${S.selectedKat.has(k)?'active':''}" data-kat="${k}">${k}</div>`
+  ).join('');
+  wrap.querySelectorAll('.chip').forEach(el => {
+    el.addEventListener('click', () => {
+      const k = el.dataset.kat;
+      const alleAusgewaehlt = S.selectedKat.size === S.kategorien.length;
+      if (alleAusgewaehlt) {
+        S.selectedKat = new Set([k]);
+      } else if (S.selectedKat.size === 1 && S.selectedKat.has(k)) {
+        S.selectedKat = new Set(S.kategorien);
+      } else if (S.selectedKat.has(k)) {
+        S.selectedKat.delete(k);
+      } else {
+        S.selectedKat.add(k);
+      }
+      renderLernliste();
+    });
+  });
+}
+
+function onLlSucheInput() {
+  S.llSuche = document.getElementById('ll-suche').value;
+  renderLernliste();
+}
+
+function renderLernliste() {
+  renderLernlisteKategorien();
+  const sucheAktiv = !!S.llSuche.trim();
+  document.getElementById('ll-kategorien').parentElement.style.opacity = sucheAktiv ? '0.4' : '1';
+  document.getElementById('ll-richtung').parentElement.style.opacity = sucheAktiv ? '0.4' : '1';
+  const content = document.getElementById('ll-content');
+  const gefiltert = sucheAktiv
+    ? S.vokabeln.filter(v => sucheTreffer(v, S.llSuche))
+    : S.vokabeln.filter(v => S.selectedKat.has(v.kategorie));
+  if (S.llTab === 'vokabeln') {
+    const byKat = {};
+    gefiltert.forEach(v => { (byKat[v.kategorie] = byKat[v.kategorie] || []).push(v); });
+    const kats = Object.keys(byKat).sort();
+    if (!kats.length) {
+      content.innerHTML = `<p style="color:var(--text-light);font-size:13px;padding:10px 0">${sucheAktiv ? 'Keine Treffer für die Suche' : 'Keine Vokabeln in den gewählten Kategorien'}</p>`;
+      return;
+    }
+    content.innerHTML = kats.map(k => {
+      const items = [...byKat[k]].sort((a,b) => S.llRichtung === 'de-it' ? a.de.localeCompare(b.de) : a.it.localeCompare(b.it));
+      return `<div class="ll-kat-title">${k}</div>` + items.map(v => {
+        const itSpan = `<span class="ll-it">${v.it}<button class="ll-speak-btn" onclick="speak('${escJs(v.it)}','la')" title="Aussprache anhören">&#128266;</button></span>`;
+        const deSpan = `<span class="ll-de">${v.de}</span>`;
+        const actions = `<div class="ll-row-actions">
+          <button class="ll-edit-btn" onclick="openEditModal(${v.id})" title="Korrigieren">&#9999;&#65039;</button>
+          <button class="ll-del-btn" onclick="deleteVokabel(${v.id})" title="Löschen">&#128465;</button>
+        </div>`;
+        return `<div class="ll-row">${S.llRichtung === 'de-it' ? deSpan + itSpan : itSpan + deSpan}${actions}</div>`;
+      }).join('');
+    }).join('');
+  } else {
+    const verben = gefiltert.filter(v => v.formen).sort((a,b) => a.it.localeCompare(b.it));
+    if (!verben.length) {
+      content.innerHTML = `<p style="color:var(--text-light);font-size:13px;padding:10px 0">${sucheAktiv ? 'Keine Treffer für die Suche' : 'Keine Verben mit Verbformen in den gewählten Kategorien'}</p>`;
+      return;
+    }
+    content.innerHTML = verben.map(v => `
+      <div class="ll-verb-card">
+        <div class="ll-verb-hdr"><span class="ll-inf">${v.it}</span><span class="ll-mean">${v.de}</span></div>
+        <div class="ll-forms">${formenText(v.formen)}</div>
+      </div>`).join('');
+  }
+}
+
+function renderStart() {
+  const wrap = document.getElementById('start-kategorien');
+  wrap.innerHTML = S.kategorien.map(k =>
+    `<div class="chip ${S.selectedKat.has(k)?'active':''}" data-kat="${k}">${k}</div>`
+  ).join('');
+  wrap.querySelectorAll('.chip').forEach(el => {
+    el.addEventListener('click', () => {
+      const k = el.dataset.kat;
+      const alleAusgewaehlt = S.selectedKat.size === S.kategorien.length;
+      if (alleAusgewaehlt) {
+        // Filter: aus "alle ausgewählt" isoliert ein Klick genau diese eine Kategorie
+        S.selectedKat = new Set([k]);
+      } else if (S.selectedKat.size === 1 && S.selectedKat.has(k)) {
+        // Erneuter Klick auf die einzige aktive Kategorie -> zurück zu "alle"
+        S.selectedKat = new Set(S.kategorien);
+      } else if (S.selectedKat.has(k)) {
+        S.selectedKat.delete(k);
+      } else {
+        S.selectedKat.add(k);
+      }
+      renderStart();
+    });
+  });
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function normalize(s) {
+  return (s || '').toLowerCase().trim()
+    .replace(/[^\w\s\/]/g, '').trim();
+}
+
+function antwortRichtig(eingabe, loesung) {
+  const varianten = loesung.split(/[/,]/).map(v => normalize(v));
+  return varianten.includes(normalize(eingabe));
+}
+
+const PERSON_LABEL = { yo:'yo', tu:'tú', el:'él/ella', nosotros:'nosotros', vosotros:'vosotros', ellos:'ellos/ellas' };
+const PERSONEN = Object.keys(PERSON_LABEL);
+const ABFRAGBARE_FORMEN = ['past','participle'];
+
+function startQuiz(liste = null) {
+  const anzahl = parseInt(document.getElementById('start-anzahl').value);
+  let basisPool = liste || S.vokabeln.filter(v => S.selectedKat.has(v.kategorie));
+
+  if (!liste && !istFreigeschaltet()) {
+    const vorher = basisPool.length;
+    basisPool = trialBegrenzterPool(basisPool);
+    if (basisPool.length < vorher) {
+      toast(`🔒 Testversion: Training auf ${TRIAL_LIMIT_PRO_KATEGORIE} Vokabeln je Kategorie begrenzt`);
+    }
+  }
+
+  if (S.richtung === 'konjugation' && !liste) {
+    basisPool = basisPool.filter(v => v.formen);
+    if (!basisPool.length) { toast('Keine Verben mit Verbformen in dieser Auswahl'); return; }
+    let pool = shuffle(basisPool).slice(0, anzahl);
+    // ggf. mit Wiederholung auffüllen, falls weniger Verben als gewünschte Fragenzahl
+    while (pool.length < anzahl && basisPool.length) {
+      pool.push(basisPool[Math.floor(Math.random() * basisPool.length)]);
+    }
+    S.quizList = pool.map(v => {
+      const person = ABFRAGBARE_FORMEN[Math.floor(Math.random() * ABFRAGBARE_FORMEN.length)];
+      return { ...v, dir: 'konjugation', person, correctForm: v.formen[person] };
+    });
+  } else {
+    let pool = shuffle(basisPool).slice(0, liste ? basisPool.length : anzahl);
+    S.quizList = pool.map(v => {
+      let dir = S.richtung === 'konjugation' ? 'it-de' : S.richtung;
+      if (dir === 'mix') dir = Math.random() < 0.5 ? 'it-de' : 'de-it';
+      return { ...v, dir };
+    });
+  }
+
+  if (!S.quizList.length) { toast('Keine Vokabeln in den gewählten Kategorien'); return; }
+  S.quizIndex = 0;
+  S.richtig = 0;
+  S.falscheListe = [];
+  gotoPage('quiz');
+  zeigeQuizFrage();
+}
+
+function formenText(formen) {
+  return PERSONEN.map(p => `<span><b>${PERSON_LABEL[p]}</b> ${formen[p]}</span>`).join('');
+}
+
+// ── QUIZ-REAKTIONEN (abwechslungsreiches Feedback + optionaler Ton) ─────────
+const REAKTIONEN_RICHTIG = [
+  { text: '&#10003;', big: true },
+  { text: 'Wooow! &#127881;' },
+  { text: 'Perfekt!' },
+  { text: 'Genau richtig!' },
+  { text: 'Stark! &#128170;' },
+  { text: 'Yes!' },
+];
+const REAKTIONEN_FALSCH = [
+  { text: 'Oooohhh&hellip;' },
+  { text: 'Knapp daneben' },
+  { text: 'Fast!' },
+  { text: 'Nicht ganz&hellip;' },
+  { text: '&#10007;', big: true },
+];
+
+function zeigeQuizReaktion(ok) {
+  const pool = ok ? REAKTIONEN_RICHTIG : REAKTIONEN_FALSCH;
+  const reaktion = pool[Math.floor(Math.random() * pool.length)];
+  const el = document.getElementById('quiz-reaction');
+  el.innerHTML = reaktion.text;
+  el.className = 'quiz-reaction show ' + (ok ? 'correct' : 'wrong') + (reaktion.big ? ' big' : '');
+}
+
+let _audioCtx;
+function spieleQuizSound(ok) {
+  try {
+    _audioCtx = _audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const ctx = _audioCtx;
+    const t0 = ctx.currentTime;
+    if (ok) {
+      [523.25, 659.25].forEach((freq, i) => {
+        const osc = ctx.createOscillator(), gain = ctx.createGain();
+        osc.type = 'sine'; osc.frequency.value = freq;
+        const start = t0 + i * 0.09;
+        gain.gain.setValueAtTime(0, start);
+        gain.gain.linearRampToValueAtTime(0.18, start + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.28);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(start); osc.stop(start + 0.3);
+      });
+    } else {
+      const osc = ctx.createOscillator(), gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(300, t0);
+      osc.frequency.exponentialRampToValueAtTime(140, t0 + 0.28);
+      gain.gain.setValueAtTime(0.16, t0);
+      gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.3);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(t0); osc.stop(t0 + 0.32);
+    }
+  } catch (e) { /* Web Audio evtl. nicht verfügbar - Feedback bleibt visuell */ }
+}
+
+function zeigeQuizFrage() {
+  const item = S.quizList[S.quizIndex];
+  let frage, badge;
+  if (item.dir === 'konjugation') {
+    frage = `${item.it} — ${PERSON_LABEL[item.person]}`;
+    badge = 'Verbformen';
+    S.quizSpeak = { text: item.it, lang: 'la' };
+  } else {
+    frage = item.dir === 'it-de' ? item.it : item.de;
+    badge = item.dir === 'it-de' ? 'Latein → Deutsch' : 'Deutsch → Latein';
+    S.quizSpeak = item.dir === 'it-de' ? { text: item.it, lang: 'la' } : { text: item.de, lang: 'de-DE' };
+  }
+  document.getElementById('quiz-badge').textContent = badge;
+  document.getElementById('quiz-word').textContent = frage;
+  speak(S.quizSpeak.text, S.quizSpeak.lang);
+  const inp = document.getElementById('quiz-input');
+  inp.value = ''; inp.className = 'quiz-input'; inp.disabled = false;
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  const reactionEl = document.getElementById('quiz-reaction');
+  reactionEl.textContent = ''; reactionEl.className = 'quiz-reaction';
+  const formsEl = document.getElementById('quiz-forms');
+  formsEl.className = 'quiz-forms'; formsEl.innerHTML = '';
+  document.getElementById('quiz-check-btn').textContent = 'Prüfen';
+  document.getElementById('quiz-check-btn').onclick = quizCheck;
+
+  const pct = Math.round((S.quizIndex / S.quizList.length) * 100);
+  document.getElementById('quiz-progress-fill').style.width = pct + '%';
+  document.getElementById('quiz-progress').textContent =
+    `Frage ${S.quizIndex+1} / ${S.quizList.length} · Richtig: ${S.richtig}`;
+
+  setTimeout(() => inp.focus(), 50);
+}
+
+function quizCheck() {
+  const item = S.quizList[S.quizIndex];
+  const loesung = item.dir === 'konjugation' ? item.correctForm
+                : item.dir === 'it-de' ? item.de : item.it;
+  const inp = document.getElementById('quiz-input');
+  const eingabe = inp.value;
+  const ok = antwortRichtig(eingabe, loesung);
+
+  inp.disabled = true;
+  inp.className = 'quiz-input ' + (ok ? 'correct' : 'wrong');
+  const fb = document.getElementById('quiz-feedback');
+  if (ok) {
+    S.richtig++;
+    fb.textContent = '';
+    fb.className = 'quiz-feedback';
+  } else {
+    fb.textContent = `Richtig wäre: ${loesung}`;
+    fb.className = 'quiz-feedback wrong';
+    S.falscheListe.push(item);
+  }
+  zeigeQuizReaktion(ok);
+  spieleQuizSound(ok);
+
+  // Alle Formen als Zusatzinfo zeigen (nicht im Verbformen-Modus, da redundant)
+  if (item.dir !== 'konjugation' && item.formen) {
+    const formsEl = document.getElementById('quiz-forms');
+    formsEl.innerHTML = formenText(item.formen);
+    formsEl.classList.add('show');
+  }
+
+  document.getElementById('quiz-check-btn').textContent =
+    S.quizIndex + 1 < S.quizList.length ? 'Weiter' : 'Ergebnis';
+  document.getElementById('quiz-check-btn').onclick = quizNext;
+}
+
+function quizNext() {
+  S.quizIndex++;
+  if (S.quizIndex >= S.quizList.length) {
+    zeigeErgebnis();
+  } else {
+    zeigeQuizFrage();
+  }
+}
+
+function quizAbbrechen() {
+  if (confirm('Training abbrechen?')) gotoPage('start');
+}
+
+function zeigeErgebnis() {
+  gotoPage('ergebnis');
+  const total = S.quizList.length;
+  const pct = total ? Math.round((S.richtig / total) * 100) : 0;
+  document.getElementById('result-score').textContent = `${S.richtig}/${total}`;
+  document.getElementById('result-sub').textContent = `${pct}% richtig`;
+
+  const listCard = document.getElementById('result-list-card');
+  const btnWied = document.getElementById('btn-wiederholen');
+  if (S.falscheListe.length) {
+    listCard.style.display = 'block';
+    btnWied.style.display = 'block';
+    document.getElementById('result-list').innerHTML = S.falscheListe.map(v =>
+      v.dir === 'konjugation'
+        ? `<div class="result-item wrong"><span>${v.it} (${PERSON_LABEL[v.person]})</span><span>${v.correctForm}</span></div>`
+        : `<div class="result-item wrong"><span>${v.it}</span><span>${v.de}</span></div>`
+    ).join('');
+  } else {
+    listCard.style.display = 'none';
+    btnWied.style.display = 'none';
+  }
+}
+
+function wiederholeFalsche() {
+  startQuiz(S.falscheListe);
+}
+
+// ── VERWALTUNG ──────────────────────────────────────────────────────────────
+function onVkSucheInput() {
+  S.vkSuche = document.getElementById('vk-suche').value;
+  renderVerwaltung();
+}
+
+function renderVerwaltung() {
+  renderKategorienListe();
+
+  document.getElementById('vk-count').textContent = S.vokabeln.length;
+  const list = document.getElementById('vk-list');
+  const gefiltert = S.vkSuche.trim() ? S.vokabeln.filter(v => sucheTreffer(v, S.vkSuche)) : S.vokabeln;
+  const sorted = [...gefiltert].sort((a,b) => a.kategorie.localeCompare(b.kategorie) || a.it.localeCompare(b.it));
+  const katOptions = k => S.kategorien.map(x => `<option value="${x}" ${x===k?'selected':''}>${x}</option>`).join('');
+  list.innerHTML = sorted.map(v => `
+    <div class="vk-item">
+      <select class="vk-kat-select" onchange="changeVokabelKategorie(${v.id}, this.value)">${katOptions(v.kategorie)}</select>
+      <span class="vk-it">${v.it}</span>
+      <span class="vk-de">${v.de}</span>
+      <button class="vk-edit" onclick="openEditModal(${v.id})" title="Korrigieren">&#9999;&#65039;</button>
+      <button class="vk-del" onclick="deleteVokabel(${v.id})" title="Löschen">&#128465;</button>
+    </div>`).join('') || `<p style="color:var(--text-light);font-size:13px;padding:10px 0">${S.vkSuche.trim() ? 'Keine Treffer für die Suche' : 'Noch keine Vokabeln'}</p>`;
+}
+
+function renderKategorienListe() {
+  const wrap = document.getElementById('kat-list');
+  const sorted = [...S.kategorien].sort();
+  wrap.innerHTML = sorted.map(k => {
+    const anzahl = S.vokabeln.filter(v => v.kategorie === k).length;
+    return `
+    <div class="kat-row">
+      <span class="kat-name">${k}</span>
+      <span class="kat-count">${anzahl} Vokabel(n)</span>
+      <button class="vk-del" onclick="deleteKategorie('${k}', ${anzahl})" title="Kategorie löschen">&#128465;</button>
+    </div>`;
+  }).join('') || '<p style="color:var(--text-light);font-size:13px;padding:10px 0">Keine Kategorien</p>';
+}
+
+function deleteKategorie(kat, anzahl) {
+  const frage = anzahl > 0
+    ? `Kategorie "${kat}" UND alle ${anzahl} enthaltenen Vokabel(n) unwiderruflich löschen?`
+    : `Kategorie "${kat}" löschen?`;
+  if (!confirm(frage)) return;
+  if (anzahl > 0) {
+    const rest = lsLoad().filter(v => v.kategorie !== kat);
+    lsSave(rest);
+    S.vokabeln = rest;
+  }
+  const extra = lsKategorienExtraLoad().filter(k => k !== kat);
+  localStorage.setItem(LS_KAT_EXTRA_KEY, JSON.stringify(extra));
+  S.kategorien = lsKategorien(S.vokabeln);
+  S.selectedKat.delete(kat);
+  renderVerwaltung();
+  toast(anzahl > 0 ? `Kategorie "${kat}" und ${anzahl} Vokabel(n) gelöscht` : `Kategorie "${kat}" gelöscht`, 'ok');
+}
+
+function changeVokabelKategorie(id, neueKategorie) {
+  lsUpdateKategorie(id, neueKategorie);
+  S.vokabeln = lsLoad();
+  S.kategorien = lsKategorien(S.vokabeln);
+  renderVerwaltung();
+  toast(`Kategorie geändert zu "${neueKategorie}"`, 'ok');
+}
+
+// ── ADD-MODAL (Schnellzugriff per FAB oder aus Verwaltung) ───────────────────
+function openAddModal() {
+  const sel = document.getElementById('am-kategorie-select');
+  sel.innerHTML = S.kategorien.map(k => `<option value="${k}">${k}</option>`).join('');
+  const letzteKat = localStorage.getItem(LS_LETZTE_KAT_KEY);
+  if (letzteKat && S.kategorien.includes(letzteKat)) sel.value = letzteKat;
+  document.getElementById('am-it').value = '';
+  document.getElementById('am-de').value = '';
+  document.getElementById('am-err').textContent = '';
+  document.getElementById('am-dup-hint').textContent = '';
+  document.getElementById('am-trial-hint').style.display = istFreigeschaltet() ? 'none' : 'block';
+  document.getElementById('add-modal').showModal();
+  if (!istFreigeschaltet()) { openLizenzModal(); return; }
+  setTimeout(() => document.getElementById('am-it').focus(), 50);
+}
+
+function closeAddModal() {
+  document.getElementById('add-modal').close();
+}
+
+function checkDuplicate() {
+  const it = document.getElementById('am-it').value.trim();
+  const hintEl = document.getElementById('am-dup-hint');
+  if (!it) { hintEl.textContent = ''; return; }
+  const vorhanden = lsLoad().find(v => v.it.trim().toLowerCase() === it.toLowerCase());
+  hintEl.textContent = vorhanden ? `⚠ "${it}" existiert bereits (${vorhanden.kategorie}: ${vorhanden.de})` : '';
+}
+
+function clearDuplicateHint() {
+  document.getElementById('am-dup-hint').textContent = '';
+}
+
+function submitAddModal() {
+  if (!istFreigeschaltet()) { closeAddModal(); openLizenzModal(); return; }
+  const errEl = document.getElementById('am-err');
+  errEl.textContent = '';
+  const kategorie = document.getElementById('am-kategorie-select').value;
+  const it = document.getElementById('am-it').value.trim();
+  const de = document.getElementById('am-de').value.trim();
+
+  if (!kategorie) { errEl.textContent = 'Bitte Kategorie angeben'; return; }
+  if (!it || !de) { errEl.textContent = 'Bitte Latein und Deutsch ausfüllen'; return; }
+
+  const vorhanden = lsLoad().find(v => v.it.trim().toLowerCase() === it.toLowerCase());
+  if (vorhanden) {
+    errEl.textContent = `"${it}" existiert bereits (${vorhanden.kategorie}: ${vorhanden.de})`;
+    return;
+  }
+
+  lsAdd({ kategorie, it, de });
+  S.vokabeln = lsLoad();
+  S.kategorien = lsKategorien(S.vokabeln);
+  S.selectedKat.add(kategorie);
+  localStorage.setItem(LS_LETZTE_KAT_KEY, kategorie);
+  closeAddModal();
+  toast(`"${it}" hinzugefügt`, 'ok');
+
+  const activePage = document.querySelector('.page.active').id;
+  if (activePage === 'page-verwaltung') renderVerwaltung();
+  if (activePage === 'page-start') renderStart();
+}
+
+// ── KATEGORIE-MODAL ───────────────────────────────────────────────────────
+function openKatModal() {
+  document.getElementById('km-name').value = '';
+  document.getElementById('km-err').textContent = '';
+  document.getElementById('km-trial-hint').style.display = istFreigeschaltet() ? 'none' : 'block';
+  document.getElementById('kat-modal').showModal();
+  if (!istFreigeschaltet()) { openLizenzModal(); return; }
+  setTimeout(() => document.getElementById('km-name').focus(), 50);
+}
+
+function closeKatModal() {
+  document.getElementById('kat-modal').close();
+}
+
+function submitKatModal() {
+  if (!istFreigeschaltet()) { closeKatModal(); openLizenzModal(); return; }
+  const errEl = document.getElementById('km-err');
+  const name = document.getElementById('km-name').value.trim();
+  if (!name) { errEl.textContent = 'Bitte Namen angeben'; return; }
+  if (S.kategorien.some(k => k.toLowerCase() === name.toLowerCase())) {
+    errEl.textContent = `Kategorie "${name}" existiert bereits`;
+    return;
+  }
+  lsKategorienExtraAdd(name);
+  S.kategorien = lsKategorien(S.vokabeln);
+  S.selectedKat.add(name);
+  closeKatModal();
+  toast(`Kategorie "${name}" angelegt`, 'ok');
+  const p = document.querySelector('.page.active').id;
+  if (p === 'page-verwaltung') renderVerwaltung();
+  if (p === 'page-start') renderStart();
+}
+
+// ── OCR-MODAL (Vokabeln aus Foto) ─────────────────────────────────────────
+function openOcrModal() {
+  document.getElementById('ocr-file').value = '';
+  document.getElementById('ocr-status').textContent = '';
+  document.getElementById('ocr-err').textContent = '';
+  document.getElementById('ocr-rohtext').value = '';
+  document.getElementById('ocr-rohtext-wrap').style.display = 'none';
+  document.getElementById('ocr-kandidaten-wrap').style.display = 'none';
+  document.getElementById('ocr-uebernehmen-btn').style.display = 'none';
+  document.getElementById('ocr-trial-hint').style.display = istFreigeschaltet() ? 'none' : 'block';
+  S.ocrKandidaten = [];
+  document.getElementById('ocr-modal').showModal();
+  if (!istFreigeschaltet()) openLizenzModal();
+}
+
+function closeOcrModal() {
+  document.getElementById('ocr-modal').close();
+}
+
+function ocrBildGewaehlt() {
+  const fileInp = document.getElementById('ocr-file');
+  const file = fileInp.files[0];
+  if (!file) return;
+  const statusEl = document.getElementById('ocr-status');
+  const errEl = document.getElementById('ocr-err');
+  errEl.textContent = '';
+  document.getElementById('ocr-rohtext-wrap').style.display = 'none';
+  document.getElementById('ocr-kandidaten-wrap').style.display = 'none';
+  document.getElementById('ocr-uebernehmen-btn').style.display = 'none';
+  statusEl.textContent = '⏳ Text wird erkannt …';
+
+  const reader = new FileReader();
+  reader.onload = async () => {
+    try {
+      const res = await fetch('/api/ocr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: reader.result })
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) throw new Error(data.error || 'OCR fehlgeschlagen');
+      statusEl.textContent = '';
+      document.getElementById('ocr-rohtext').value = data.text.trim();
+      document.getElementById('ocr-rohtext-wrap').style.display = 'block';
+    } catch (e) {
+      statusEl.textContent = '';
+      errEl.textContent = `Fehler bei der Texterkennung: ${e.message}`;
+    }
+  };
+  reader.onerror = () => { statusEl.textContent = ''; errEl.textContent = 'Bild konnte nicht gelesen werden'; };
+  reader.readAsDataURL(file);
+}
+
+function ocrZeileTrennen(zeile) {
+  const trenner = [/\t+/, / - /, / – /, / — /, /\s{2,}/, /:/, /-/, /–/, /—/];
+  for (const t of trenner) {
+    const teile = zeile.split(t).map(s => s.trim()).filter(Boolean);
+    if (teile.length === 2) return { it: teile[0], de: teile[1] };
+  }
+  return { it: zeile.trim(), de: '' };
+}
+
+function ocrParsen() {
+  const zeilen = document.getElementById('ocr-rohtext').value.split('\n').map(z => z.trim()).filter(Boolean);
+  if (!zeilen.length) { document.getElementById('ocr-err').textContent = 'Kein Text zum Umwandeln vorhanden'; return; }
+  S.ocrKandidaten = zeilen.map(ocrZeileTrennen);
+  document.getElementById('ocr-err').textContent = '';
+  ocrRenderKandidaten();
+  document.getElementById('ocr-kandidaten-wrap').style.display = 'block';
+  document.getElementById('ocr-uebernehmen-btn').style.display = istFreigeschaltet() ? 'inline-block' : 'none';
+}
+
+function ocrRenderKandidaten() {
+  const sel = document.getElementById('ocr-kategorie-select');
+  sel.innerHTML = S.kategorien.map(k => `<option value="${k}">${k}</option>`).join('');
+  const letzteKat = localStorage.getItem(LS_LETZTE_KAT_KEY);
+  if (letzteKat && S.kategorien.includes(letzteKat)) sel.value = letzteKat;
+
+  document.getElementById('ocr-anzahl').textContent = S.ocrKandidaten.length;
+  document.getElementById('ocr-kandidaten-liste').innerHTML = S.ocrKandidaten.map((k, i) => `
+    <div class="ocr-row">
+      <input type="text" value="${(k.it || '').replace(/"/g, '&quot;')}" placeholder="Fremdwort" oninput="ocrUpdateKandidat(${i},'it',this.value)">
+      <input type="text" value="${(k.de || '').replace(/"/g, '&quot;')}" placeholder="Deutsch" oninput="ocrUpdateKandidat(${i},'de',this.value)">
+      <button onclick="ocrEntferneKandidat(${i})" title="Entfernen">&#10005;</button>
+    </div>
+  `).join('');
+}
+
+function ocrUpdateKandidat(i, feld, wert) {
+  if (S.ocrKandidaten[i]) S.ocrKandidaten[i][feld] = wert;
+}
+
+function ocrEntferneKandidat(i) {
+  S.ocrKandidaten.splice(i, 1);
+  ocrRenderKandidaten();
+}
+
+function ocrAlleUebernehmen() {
+  if (!istFreigeschaltet()) { closeOcrModal(); openLizenzModal(); return; }
+  const kategorie = document.getElementById('ocr-kategorie-select').value;
+  const errEl = document.getElementById('ocr-err');
+  if (!kategorie) { errEl.textContent = 'Bitte Kategorie wählen'; return; }
+
+  let hinzugefuegt = 0, duplikate = 0, leer = 0;
+  S.ocrKandidaten.forEach(k => {
+    const it = (k.it || '').trim(), de = (k.de || '').trim();
+    if (!it || !de) { leer++; return; }
+    const vorhanden = lsLoad().find(v => v.it.trim().toLowerCase() === it.toLowerCase());
+    if (vorhanden) { duplikate++; return; }
+    lsAdd({ kategorie, it, de });
+    hinzugefuegt++;
+  });
+
+  S.vokabeln = lsLoad();
+  S.kategorien = lsKategorien(S.vokabeln);
+  S.selectedKat.add(kategorie);
+  localStorage.setItem(LS_LETZTE_KAT_KEY, kategorie);
+  closeOcrModal();
+
+  let msg = `${hinzugefuegt} Vokabeln hinzugefügt`;
+  if (duplikate) msg += `, ${duplikate} Duplikate übersprungen`;
+  if (leer) msg += `, ${leer} unvollständige Zeilen übersprungen`;
+  toast(msg, hinzugefuegt ? 'ok' : undefined);
+
+  const p = document.querySelector('.page.active').id;
+  if (p === 'page-verwaltung') renderVerwaltung();
+  if (p === 'page-start') renderStart();
+}
+
+function openHelpModal() {
+  document.getElementById('help-modal').showModal();
+}
+
+function closeHelpModal() {
+  document.getElementById('help-modal').close();
+}
+
+// Klick auf die abgedunkelte Fläche außerhalb der Modal-Box schließt das Hilfe-Modal
+document.getElementById('help-modal').addEventListener('click', (e) => {
+  const dialog = e.currentTarget;
+  const rect = dialog.getBoundingClientRect();
+  const inDialog = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+  if (!inDialog) closeHelpModal();
+});
+
+function vokabelKey(v) {
+  return `${v.kategorie}|${v.it}|${v.de}`.toLowerCase().trim();
+}
+
+function deleteVokabel(id) {
+  if (!confirm('Vokabel löschen?')) return;
+  lsDelete(id);
+  S.vokabeln = lsLoad();
+  S.kategorien = lsKategorien(S.vokabeln);
+  const activePage = document.querySelector('.page.active').id;
+  if (activePage === 'page-verwaltung') renderVerwaltung();
+  if (activePage === 'page-liste') renderLernliste();
+  toast('Vokabel gelöscht', 'ok');
+}
+
+// ── EDIT-MODAL (Korrektur bei Tippfehlern, aus Lernbox oder Verwaltung) ──────
+function openEditModal(id) {
+  const v = S.vokabeln.find(x => x.id === id);
+  if (!v) return;
+  S.editId = id;
+  document.getElementById('em-it').value = v.it;
+  document.getElementById('em-de').value = v.de;
+  document.getElementById('em-err').textContent = '';
+  document.getElementById('edit-modal').showModal();
+  setTimeout(() => document.getElementById('em-it').focus(), 50);
+}
+
+function closeEditModal() {
+  document.getElementById('edit-modal').close();
+}
+
+function submitEditModal() {
+  const errEl = document.getElementById('em-err');
+  const it = document.getElementById('em-it').value.trim();
+  const de = document.getElementById('em-de').value.trim();
+  if (!it || !de) { errEl.textContent = 'Bitte beide Felder ausfüllen'; return; }
+  lsUpdateWort(S.editId, it, de);
+  S.vokabeln = lsLoad();
+  closeEditModal();
+  toast(`"${it}" aktualisiert`, 'ok');
+  const activePage = document.querySelector('.page.active').id;
+  if (activePage === 'page-verwaltung') renderVerwaltung();
+  if (activePage === 'page-liste') renderLernliste();
+}
+
+appInit().catch(e => console.error(e));
+
+(function () {
+  var LS_KEY = 'vokabeltrainer_installbanner_dismissed_v1';
+  if (localStorage.getItem(LS_KEY)) return;
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) return;
+
+  var ua = navigator.userAgent || '';
+  var isInApp = /Instagram|FBAN|FBAV|FB_IAB|Messenger|TikTok|BytedanceWebview|musical_ly/i.test(ua);
+  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+
+  var banner = document.getElementById('install-banner');
+  var textEl = banner.querySelector('.ib-text');
+  var btnEl = banner.querySelector('.ib-btn');
+  var closeEl = banner.querySelector('.ib-close');
+  var deferredPrompt = null;
+
+  function dismiss() {
+    banner.classList.remove('show');
+    localStorage.setItem(LS_KEY, '1');
+  }
+  closeEl.onclick = dismiss;
+
+  function zeigeBanner() {
+    if (isInApp) {
+      textEl.textContent = '📲 Für die Installation: oben rechts ⋯ (bzw. •••) antippen und "Im Browser öffnen" wählen';
+      btnEl.style.display = 'none';
+    } else if (deferredPrompt) {
+      textEl.textContent = '📲 Diese App aufs Handy holen — offline nutzbar, ganz ohne App Store';
+      btnEl.textContent = 'Installieren';
+      btnEl.style.display = 'block';
+      btnEl.onclick = function () {
+        banner.classList.remove('show');
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function () {
+          deferredPrompt = null;
+          localStorage.setItem(LS_KEY, '1');
+        });
+      };
+    } else if (isIOS) {
+      textEl.textContent = '📲 Zum Home-Bildschirm hinzufügen: Teilen-Symbol ⬆️ antippen, dann "Zum Home-Bildschirm"';
+      btnEl.style.display = 'none';
+    } else {
+      return;
+    }
+    banner.classList.add('show');
+  }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isInApp) zeigeBanner();
+  });
+
+  if (isInApp) {
+    zeigeBanner();
+  } else if (isIOS) {
+    setTimeout(zeigeBanner, 800);
+  }
+})();
+</script>
+</body>
+</html>
