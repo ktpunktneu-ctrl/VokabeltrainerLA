@@ -1,4 +1,4 @@
-const CACHE = 'vokabella-v2';
+const CACHE = 'vokabella-v4';
 const ASSETS = ['./', './index.html', './manifest.json', './static/icon-192.png', './static/icon-512.png', './static/fonts/designer.woff2'];
 
 self.addEventListener('install', e => {

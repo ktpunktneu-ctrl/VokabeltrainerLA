@@ -3,918 +3,2615 @@
     "id": 1,
     "kategorie": "Grundlagen",
     "it": "salve",
-    "de": "Hallo (zu einer Person)"
+    "de": "Hallo (zu einer Person)",
+    "wortart": "vokabel"
   },
   {
     "id": 2,
     "kategorie": "Grundlagen",
     "it": "salvete",
-    "de": "Hallo (zu mehreren)"
+    "de": "Hallo (zu mehreren)",
+    "wortart": "vokabel"
   },
   {
     "id": 3,
     "kategorie": "Grundlagen",
     "it": "vale",
-    "de": "Auf Wiedersehen (zu einer Person)"
+    "de": "Auf Wiedersehen (zu einer Person)",
+    "wortart": "vokabel"
   },
   {
     "id": 4,
     "kategorie": "Grundlagen",
     "it": "valete",
-    "de": "Auf Wiedersehen (zu mehreren)"
+    "de": "Auf Wiedersehen (zu mehreren)",
+    "wortart": "vokabel"
   },
   {
     "id": 5,
     "kategorie": "Grundlagen",
     "it": "quaeso",
-    "de": "bitte"
+    "de": "bitte",
+    "wortart": "vokabel"
   },
   {
     "id": 6,
     "kategorie": "Grundlagen",
     "it": "gratias tibi ago",
-    "de": "danke"
+    "de": "danke",
+    "wortart": "vokabel"
   },
   {
     "id": 7,
     "kategorie": "Grundlagen",
     "it": "ita",
-    "de": "ja"
+    "de": "ja",
+    "wortart": "vokabel"
   },
   {
     "id": 8,
     "kategorie": "Grundlagen",
     "it": "minime",
-    "de": "nein"
+    "de": "nein",
+    "wortart": "vokabel"
   },
   {
     "id": 9,
     "kategorie": "Grundlagen",
     "it": "amabo te",
-    "de": "bitte (dringende Bitte)"
+    "de": "bitte (dringende Bitte)",
+    "wortart": "vokabel"
   },
   {
     "id": 10,
     "kategorie": "Grundlagen",
     "it": "quid agis",
-    "de": "wie geht es dir"
+    "de": "wie geht es dir",
+    "wortart": "vokabel"
   },
   {
     "id": 11,
     "kategorie": "Grundlagen",
     "it": "bene",
-    "de": "gut"
+    "de": "gut",
+    "wortart": "vokabel"
   },
   {
     "id": 12,
     "kategorie": "Grundlagen",
     "it": "male",
-    "de": "schlecht"
+    "de": "schlecht",
+    "wortart": "vokabel"
   },
   {
     "id": 13,
     "kategorie": "Grundlagen",
     "it": "fortasse",
-    "de": "vielleicht"
+    "de": "vielleicht",
+    "wortart": "vokabel"
   },
   {
     "id": 14,
     "kategorie": "Grundlagen",
     "it": "et",
-    "de": "und"
+    "de": "und",
+    "wortart": "vokabel"
   },
   {
     "id": 15,
     "kategorie": "Grundlagen",
     "it": "sed",
-    "de": "aber"
+    "de": "aber",
+    "wortart": "vokabel"
   },
   {
     "id": 16,
     "kategorie": "Grundlagen",
     "it": "si",
-    "de": "wenn"
+    "de": "wenn",
+    "wortart": "vokabel"
   },
   {
     "id": 17,
     "kategorie": "Grundlagen",
     "it": "quia",
-    "de": "weil"
+    "de": "weil",
+    "wortart": "vokabel"
   },
   {
     "id": 18,
     "kategorie": "Grundlagen",
     "it": "nunc",
-    "de": "jetzt"
+    "de": "jetzt",
+    "wortart": "vokabel"
   },
   {
     "id": 19,
     "kategorie": "Zahlen",
     "it": "unus",
-    "de": "eins"
+    "de": "eins",
+    "wortart": "vokabel"
   },
   {
     "id": 20,
     "kategorie": "Zahlen",
     "it": "duo",
-    "de": "zwei"
+    "de": "zwei",
+    "wortart": "vokabel"
   },
   {
     "id": 21,
     "kategorie": "Zahlen",
     "it": "tres",
-    "de": "drei"
+    "de": "drei",
+    "wortart": "vokabel"
   },
   {
     "id": 22,
     "kategorie": "Zahlen",
     "it": "quattuor",
-    "de": "vier"
+    "de": "vier",
+    "wortart": "vokabel"
   },
   {
     "id": 23,
     "kategorie": "Zahlen",
     "it": "quinque",
-    "de": "fünf"
+    "de": "fünf",
+    "wortart": "vokabel"
   },
   {
     "id": 24,
     "kategorie": "Zahlen",
     "it": "sex",
-    "de": "sechs"
+    "de": "sechs",
+    "wortart": "vokabel"
   },
   {
     "id": 25,
     "kategorie": "Zahlen",
     "it": "septem",
-    "de": "sieben"
+    "de": "sieben",
+    "wortart": "vokabel"
   },
   {
     "id": 26,
     "kategorie": "Zahlen",
     "it": "octo",
-    "de": "acht"
+    "de": "acht",
+    "wortart": "vokabel"
   },
   {
     "id": 27,
     "kategorie": "Zahlen",
     "it": "novem",
-    "de": "neun"
+    "de": "neun",
+    "wortart": "vokabel"
   },
   {
     "id": 28,
     "kategorie": "Zahlen",
     "it": "decem",
-    "de": "zehn"
+    "de": "zehn",
+    "wortart": "vokabel"
   },
   {
     "id": 29,
     "kategorie": "Zahlen",
     "it": "centum",
-    "de": "hundert"
+    "de": "hundert",
+    "wortart": "vokabel"
   },
   {
     "id": 30,
     "kategorie": "Zahlen",
     "it": "mille",
-    "de": "tausend"
+    "de": "tausend",
+    "wortart": "vokabel"
   },
   {
     "id": 31,
     "kategorie": "Farben",
     "it": "albus",
-    "de": "weiß"
+    "de": "weiß",
+    "wortart": "vokabel"
   },
   {
     "id": 32,
     "kategorie": "Farben",
     "it": "niger",
-    "de": "schwarz"
+    "de": "schwarz",
+    "wortart": "vokabel"
   },
   {
     "id": 33,
     "kategorie": "Farben",
     "it": "ruber",
-    "de": "rot"
+    "de": "rot",
+    "wortart": "vokabel"
   },
   {
     "id": 34,
     "kategorie": "Farben",
     "it": "viridis",
-    "de": "grün"
+    "de": "grün",
+    "wortart": "vokabel"
   },
   {
     "id": 35,
     "kategorie": "Farben",
     "it": "caeruleus",
-    "de": "blau"
+    "de": "blau",
+    "wortart": "vokabel"
   },
   {
     "id": 36,
     "kategorie": "Farben",
     "it": "flavus",
-    "de": "gelb"
+    "de": "gelb",
+    "wortart": "vokabel"
   },
   {
     "id": 37,
     "kategorie": "Farben",
     "it": "purpureus",
-    "de": "purpurn"
+    "de": "purpurn",
+    "wortart": "vokabel"
   },
   {
     "id": 38,
     "kategorie": "Farben",
     "it": "fuscus",
-    "de": "braun"
+    "de": "braun",
+    "wortart": "vokabel"
   },
   {
     "id": 39,
     "kategorie": "Familie",
     "it": "pater",
-    "de": "Vater"
+    "de": "Vater",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "patris",
+    "formen": {
+      "sg": {
+        "nom": "pater",
+        "gen": "patris",
+        "dat": "patri",
+        "akk": "patrem",
+        "abl": "patre"
+      }
+    }
   },
   {
     "id": 40,
     "kategorie": "Familie",
     "it": "mater",
-    "de": "Mutter"
+    "de": "Mutter",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "matris",
+    "formen": {
+      "sg": {
+        "nom": "mater",
+        "gen": "matris",
+        "dat": "matri",
+        "akk": "matrem",
+        "abl": "matre"
+      }
+    }
   },
   {
     "id": 41,
     "kategorie": "Familie",
     "it": "filius",
-    "de": "Sohn"
+    "de": "Sohn",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "filii",
+    "formen": {
+      "sg": {
+        "nom": "filius",
+        "gen": "filii",
+        "dat": "filio",
+        "akk": "filium",
+        "abl": "filio"
+      },
+      "pl": {
+        "nom": "filii",
+        "gen": "filiorum",
+        "dat": "filiis",
+        "akk": "filios",
+        "abl": "filiis"
+      }
+    }
   },
   {
     "id": 42,
     "kategorie": "Familie",
     "it": "filia",
-    "de": "Tochter"
+    "de": "Tochter",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "filiae",
+    "formen": {
+      "sg": {
+        "nom": "filia",
+        "gen": "filiae",
+        "dat": "filiae",
+        "akk": "filiam",
+        "abl": "filia"
+      },
+      "pl": {
+        "nom": "filiae",
+        "gen": "filiarum",
+        "dat": "filiis",
+        "akk": "filias",
+        "abl": "filiis"
+      }
+    }
   },
   {
     "id": 43,
     "kategorie": "Familie",
     "it": "frater",
-    "de": "Bruder"
+    "de": "Bruder",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "fratris",
+    "formen": {
+      "sg": {
+        "nom": "frater",
+        "gen": "fratris",
+        "dat": "fratri",
+        "akk": "fratrem",
+        "abl": "fratre"
+      }
+    }
   },
   {
     "id": 44,
     "kategorie": "Familie",
     "it": "soror",
-    "de": "Schwester"
+    "de": "Schwester",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "sororis",
+    "formen": {
+      "sg": {
+        "nom": "soror",
+        "gen": "sororis",
+        "dat": "sorori",
+        "akk": "sororem",
+        "abl": "sorore"
+      }
+    }
   },
   {
     "id": 45,
     "kategorie": "Familie",
     "it": "avus",
-    "de": "Großvater"
+    "de": "Großvater",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "avi",
+    "formen": {
+      "sg": {
+        "nom": "avus",
+        "gen": "avi",
+        "dat": "avo",
+        "akk": "avum",
+        "abl": "avo"
+      },
+      "pl": {
+        "nom": "avi",
+        "gen": "avorum",
+        "dat": "avis",
+        "akk": "avos",
+        "abl": "avis"
+      }
+    }
   },
   {
     "id": 46,
     "kategorie": "Familie",
     "it": "avia",
-    "de": "Großmutter"
+    "de": "Großmutter",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "aviae",
+    "formen": {
+      "sg": {
+        "nom": "avia",
+        "gen": "aviae",
+        "dat": "aviae",
+        "akk": "aviam",
+        "abl": "avia"
+      },
+      "pl": {
+        "nom": "aviae",
+        "gen": "aviarum",
+        "dat": "aviis",
+        "akk": "avias",
+        "abl": "aviis"
+      }
+    }
   },
   {
     "id": 47,
     "kategorie": "Familie",
     "it": "puer",
-    "de": "Junge"
+    "de": "Junge",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "pueri",
+    "formen": {
+      "sg": {
+        "nom": "puer",
+        "gen": "pueri",
+        "dat": "puero",
+        "akk": "puerum",
+        "abl": "puero"
+      },
+      "pl": {
+        "nom": "pueri",
+        "gen": "puerorum",
+        "dat": "pueris",
+        "akk": "pueros",
+        "abl": "pueris"
+      }
+    }
   },
   {
     "id": 48,
     "kategorie": "Familie",
     "it": "puella",
-    "de": "Mädchen"
+    "de": "Mädchen",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "puellae",
+    "formen": {
+      "sg": {
+        "nom": "puella",
+        "gen": "puellae",
+        "dat": "puellae",
+        "akk": "puellam",
+        "abl": "puella"
+      },
+      "pl": {
+        "nom": "puellae",
+        "gen": "puellarum",
+        "dat": "puellis",
+        "akk": "puellas",
+        "abl": "puellis"
+      }
+    }
   },
   {
     "id": 49,
     "kategorie": "Familie",
     "it": "vir",
-    "de": "Mann"
+    "de": "Mann",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "viri",
+    "formen": {
+      "sg": {
+        "nom": "vir",
+        "gen": "viri",
+        "dat": "viro",
+        "akk": "virum",
+        "abl": "viro"
+      },
+      "pl": {
+        "nom": "viri",
+        "gen": "virorum",
+        "dat": "viris",
+        "akk": "viros",
+        "abl": "viris"
+      }
+    }
   },
   {
     "id": 50,
     "kategorie": "Familie",
     "it": "femina",
-    "de": "Frau"
+    "de": "Frau",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "feminae",
+    "formen": {
+      "sg": {
+        "nom": "femina",
+        "gen": "feminae",
+        "dat": "feminae",
+        "akk": "feminam",
+        "abl": "femina"
+      },
+      "pl": {
+        "nom": "feminae",
+        "gen": "feminarum",
+        "dat": "feminis",
+        "akk": "feminas",
+        "abl": "feminis"
+      }
+    }
   },
   {
     "id": 51,
     "kategorie": "Natur",
     "it": "aqua",
-    "de": "Wasser"
+    "de": "Wasser",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "aquae",
+    "formen": {
+      "sg": {
+        "nom": "aqua",
+        "gen": "aquae",
+        "dat": "aquae",
+        "akk": "aquam",
+        "abl": "aqua"
+      },
+      "pl": {
+        "nom": "aquae",
+        "gen": "aquarum",
+        "dat": "aquis",
+        "akk": "aquas",
+        "abl": "aquis"
+      }
+    }
   },
   {
     "id": 52,
     "kategorie": "Natur",
     "it": "terra",
-    "de": "Erde"
+    "de": "Erde",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "terrae",
+    "formen": {
+      "sg": {
+        "nom": "terra",
+        "gen": "terrae",
+        "dat": "terrae",
+        "akk": "terram",
+        "abl": "terra"
+      },
+      "pl": {
+        "nom": "terrae",
+        "gen": "terrarum",
+        "dat": "terris",
+        "akk": "terras",
+        "abl": "terris"
+      }
+    }
   },
   {
     "id": 53,
     "kategorie": "Natur",
     "it": "caelum",
-    "de": "Himmel"
+    "de": "Himmel",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 2,
+    "genitiv": "caeli",
+    "formen": {
+      "sg": {
+        "nom": "caelum",
+        "gen": "caeli",
+        "dat": "caelo",
+        "akk": "caelum",
+        "abl": "caelo"
+      },
+      "pl": {
+        "nom": "caela",
+        "gen": "caelorum",
+        "dat": "caelis",
+        "akk": "caela",
+        "abl": "caelis"
+      }
+    }
   },
   {
     "id": 54,
     "kategorie": "Natur",
     "it": "sol",
-    "de": "Sonne"
+    "de": "Sonne",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "solis",
+    "formen": {
+      "sg": {
+        "nom": "sol",
+        "gen": "solis",
+        "dat": "soli",
+        "akk": "solem",
+        "abl": "sole"
+      }
+    }
   },
   {
     "id": 55,
     "kategorie": "Natur",
     "it": "luna",
-    "de": "Mond"
+    "de": "Mond",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "lunae",
+    "formen": {
+      "sg": {
+        "nom": "luna",
+        "gen": "lunae",
+        "dat": "lunae",
+        "akk": "lunam",
+        "abl": "luna"
+      },
+      "pl": {
+        "nom": "lunae",
+        "gen": "lunarum",
+        "dat": "lunis",
+        "akk": "lunas",
+        "abl": "lunis"
+      }
+    }
   },
   {
     "id": 56,
     "kategorie": "Natur",
     "it": "stella",
-    "de": "Stern"
+    "de": "Stern",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "stellae",
+    "formen": {
+      "sg": {
+        "nom": "stella",
+        "gen": "stellae",
+        "dat": "stellae",
+        "akk": "stellam",
+        "abl": "stella"
+      },
+      "pl": {
+        "nom": "stellae",
+        "gen": "stellarum",
+        "dat": "stellis",
+        "akk": "stellas",
+        "abl": "stellis"
+      }
+    }
   },
   {
     "id": 57,
     "kategorie": "Natur",
     "it": "mons",
-    "de": "Berg"
+    "de": "Berg",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "montis",
+    "formen": {
+      "sg": {
+        "nom": "mons",
+        "gen": "montis",
+        "dat": "monti",
+        "akk": "montem",
+        "abl": "monte"
+      }
+    }
   },
   {
     "id": 58,
     "kategorie": "Natur",
     "it": "silva",
-    "de": "Wald"
+    "de": "Wald",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "silvae",
+    "formen": {
+      "sg": {
+        "nom": "silva",
+        "gen": "silvae",
+        "dat": "silvae",
+        "akk": "silvam",
+        "abl": "silva"
+      },
+      "pl": {
+        "nom": "silvae",
+        "gen": "silvarum",
+        "dat": "silvis",
+        "akk": "silvas",
+        "abl": "silvis"
+      }
+    }
   },
   {
     "id": 59,
     "kategorie": "Natur",
     "it": "flumen",
-    "de": "Fluss"
+    "de": "Fluss",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 3,
+    "genitiv": "fluminis",
+    "formen": {
+      "sg": {
+        "nom": "flumen",
+        "gen": "fluminis",
+        "dat": "flumini",
+        "akk": "flumen",
+        "abl": "flumine"
+      }
+    }
   },
   {
     "id": 60,
     "kategorie": "Natur",
     "it": "mare",
-    "de": "Meer"
+    "de": "Meer",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 3,
+    "genitiv": "maris",
+    "formen": {
+      "sg": {
+        "nom": "mare",
+        "gen": "maris",
+        "dat": "mari",
+        "akk": "mare",
+        "abl": "mari"
+      }
+    }
   },
   {
     "id": 61,
     "kategorie": "Natur",
     "it": "ventus",
-    "de": "Wind"
+    "de": "Wind",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "venti",
+    "formen": {
+      "sg": {
+        "nom": "ventus",
+        "gen": "venti",
+        "dat": "vento",
+        "akk": "ventum",
+        "abl": "vento"
+      },
+      "pl": {
+        "nom": "venti",
+        "gen": "ventorum",
+        "dat": "ventis",
+        "akk": "ventos",
+        "abl": "ventis"
+      }
+    }
   },
   {
     "id": 62,
     "kategorie": "Natur",
     "it": "ignis",
-    "de": "Feuer"
+    "de": "Feuer",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "ignis",
+    "formen": {
+      "sg": {
+        "nom": "ignis",
+        "gen": "ignis",
+        "dat": "igni",
+        "akk": "ignem",
+        "abl": "igne"
+      }
+    }
   },
   {
     "id": 63,
     "kategorie": "Natur",
     "it": "arbor",
-    "de": "Baum"
+    "de": "Baum",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "arboris",
+    "formen": {
+      "sg": {
+        "nom": "arbor",
+        "gen": "arboris",
+        "dat": "arbori",
+        "akk": "arborem",
+        "abl": "arbore"
+      }
+    }
   },
   {
     "id": 64,
     "kategorie": "Natur",
     "it": "flos",
-    "de": "Blume"
+    "de": "Blume",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "floris",
+    "formen": {
+      "sg": {
+        "nom": "flos",
+        "gen": "floris",
+        "dat": "flori",
+        "akk": "florem",
+        "abl": "flore"
+      }
+    }
   },
   {
     "id": 65,
     "kategorie": "Essen",
     "it": "panis",
-    "de": "Brot"
+    "de": "Brot",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "panis",
+    "formen": {
+      "sg": {
+        "nom": "panis",
+        "gen": "panis",
+        "dat": "pani",
+        "akk": "panem",
+        "abl": "pane"
+      }
+    }
   },
   {
     "id": 66,
     "kategorie": "Essen",
     "it": "vinum",
-    "de": "Wein"
+    "de": "Wein",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 2,
+    "genitiv": "vini",
+    "formen": {
+      "sg": {
+        "nom": "vinum",
+        "gen": "vini",
+        "dat": "vino",
+        "akk": "vinum",
+        "abl": "vino"
+      },
+      "pl": {
+        "nom": "vina",
+        "gen": "vinorum",
+        "dat": "vinis",
+        "akk": "vina",
+        "abl": "vinis"
+      }
+    }
   },
   {
     "id": 67,
     "kategorie": "Essen",
     "it": "lac",
-    "de": "Milch"
+    "de": "Milch",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 3,
+    "genitiv": "lactis",
+    "formen": {
+      "sg": {
+        "nom": "lac",
+        "gen": "lactis",
+        "dat": "lacti",
+        "akk": "lac",
+        "abl": "lacte"
+      }
+    }
   },
   {
     "id": 68,
     "kategorie": "Essen",
     "it": "caro",
-    "de": "Fleisch"
+    "de": "Fleisch",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "carnis",
+    "formen": {
+      "sg": {
+        "nom": "caro",
+        "gen": "carnis",
+        "dat": "carni",
+        "akk": "carnem",
+        "abl": "carne"
+      }
+    }
   },
   {
     "id": 69,
     "kategorie": "Essen",
     "it": "piscis",
-    "de": "Fisch"
+    "de": "Fisch",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "piscis",
+    "formen": {
+      "sg": {
+        "nom": "piscis",
+        "gen": "piscis",
+        "dat": "pisci",
+        "akk": "piscem",
+        "abl": "pisce"
+      }
+    }
   },
   {
     "id": 70,
     "kategorie": "Essen",
     "it": "mel",
-    "de": "Honig"
+    "de": "Honig",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 3,
+    "genitiv": "mellis",
+    "formen": {
+      "sg": {
+        "nom": "mel",
+        "gen": "mellis",
+        "dat": "melli",
+        "akk": "mel",
+        "abl": "melle"
+      }
+    }
   },
   {
     "id": 71,
     "kategorie": "Essen",
     "it": "pomum",
-    "de": "Frucht"
+    "de": "Frucht",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 2,
+    "genitiv": "pomi",
+    "formen": {
+      "sg": {
+        "nom": "pomum",
+        "gen": "pomi",
+        "dat": "pomo",
+        "akk": "pomum",
+        "abl": "pomo"
+      },
+      "pl": {
+        "nom": "poma",
+        "gen": "pomorum",
+        "dat": "pomis",
+        "akk": "poma",
+        "abl": "pomis"
+      }
+    }
   },
   {
     "id": 72,
     "kategorie": "Essen",
     "it": "oleum",
-    "de": "Öl"
+    "de": "Öl",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 2,
+    "genitiv": "olei",
+    "formen": {
+      "sg": {
+        "nom": "oleum",
+        "gen": "olei",
+        "dat": "oleo",
+        "akk": "oleum",
+        "abl": "oleo"
+      },
+      "pl": {
+        "nom": "olea",
+        "gen": "oleorum",
+        "dat": "oleis",
+        "akk": "olea",
+        "abl": "oleis"
+      }
+    }
   },
   {
     "id": 73,
     "kategorie": "Essen",
     "it": "sal",
-    "de": "Salz"
+    "de": "Salz",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "salis",
+    "formen": {
+      "sg": {
+        "nom": "sal",
+        "gen": "salis",
+        "dat": "sali",
+        "akk": "salem",
+        "abl": "sale"
+      }
+    }
   },
   {
     "id": 74,
     "kategorie": "Essen",
     "it": "cibus",
-    "de": "Speise"
+    "de": "Speise",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "cibi",
+    "formen": {
+      "sg": {
+        "nom": "cibus",
+        "gen": "cibi",
+        "dat": "cibo",
+        "akk": "cibum",
+        "abl": "cibo"
+      },
+      "pl": {
+        "nom": "cibi",
+        "gen": "ciborum",
+        "dat": "cibis",
+        "akk": "cibos",
+        "abl": "cibis"
+      }
+    }
   },
   {
     "id": 75,
     "kategorie": "Zeit",
     "it": "dies",
-    "de": "Tag"
+    "de": "Tag",
+    "wortart": "vokabel"
   },
   {
     "id": 76,
     "kategorie": "Zeit",
     "it": "nox",
-    "de": "Nacht"
+    "de": "Nacht",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "noctis",
+    "formen": {
+      "sg": {
+        "nom": "nox",
+        "gen": "noctis",
+        "dat": "nocti",
+        "akk": "noctem",
+        "abl": "nocte"
+      }
+    }
   },
   {
     "id": 77,
     "kategorie": "Zeit",
     "it": "hora",
-    "de": "Stunde"
+    "de": "Stunde",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "horae",
+    "formen": {
+      "sg": {
+        "nom": "hora",
+        "gen": "horae",
+        "dat": "horae",
+        "akk": "horam",
+        "abl": "hora"
+      },
+      "pl": {
+        "nom": "horae",
+        "gen": "horarum",
+        "dat": "horis",
+        "akk": "horas",
+        "abl": "horis"
+      }
+    }
   },
   {
     "id": 78,
     "kategorie": "Zeit",
     "it": "annus",
-    "de": "Jahr"
+    "de": "Jahr",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "anni",
+    "formen": {
+      "sg": {
+        "nom": "annus",
+        "gen": "anni",
+        "dat": "anno",
+        "akk": "annum",
+        "abl": "anno"
+      },
+      "pl": {
+        "nom": "anni",
+        "gen": "annorum",
+        "dat": "annis",
+        "akk": "annos",
+        "abl": "annis"
+      }
+    }
   },
   {
     "id": 79,
     "kategorie": "Zeit",
     "it": "mensis",
-    "de": "Monat"
+    "de": "Monat",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "mensis",
+    "formen": {
+      "sg": {
+        "nom": "mensis",
+        "gen": "mensis",
+        "dat": "mensi",
+        "akk": "mensem",
+        "abl": "mense"
+      }
+    }
   },
   {
     "id": 80,
     "kategorie": "Zeit",
     "it": "hodie",
-    "de": "heute"
+    "de": "heute",
+    "wortart": "vokabel"
   },
   {
     "id": 81,
     "kategorie": "Zeit",
     "it": "heri",
-    "de": "gestern"
+    "de": "gestern",
+    "wortart": "vokabel"
   },
   {
     "id": 82,
     "kategorie": "Zeit",
     "it": "cras",
-    "de": "morgen"
+    "de": "morgen",
+    "wortart": "vokabel"
   },
   {
     "id": 83,
     "kategorie": "Zeit",
     "it": "semper",
-    "de": "immer"
+    "de": "immer",
+    "wortart": "vokabel"
   },
   {
     "id": 84,
     "kategorie": "Zeit",
     "it": "numquam",
-    "de": "nie"
+    "de": "nie",
+    "wortart": "vokabel"
   },
   {
     "id": 85,
     "kategorie": "Zeit",
     "it": "saepe",
-    "de": "oft"
+    "de": "oft",
+    "wortart": "vokabel"
   },
   {
     "id": 86,
     "kategorie": "Schule",
     "it": "schola",
-    "de": "Schule"
+    "de": "Schule",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "scholae",
+    "formen": {
+      "sg": {
+        "nom": "schola",
+        "gen": "scholae",
+        "dat": "scholae",
+        "akk": "scholam",
+        "abl": "schola"
+      },
+      "pl": {
+        "nom": "scholae",
+        "gen": "scholarum",
+        "dat": "scholis",
+        "akk": "scholas",
+        "abl": "scholis"
+      }
+    }
   },
   {
     "id": 87,
     "kategorie": "Schule",
     "it": "magister",
-    "de": "Lehrer"
+    "de": "Lehrer",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "magistri",
+    "formen": {
+      "sg": {
+        "nom": "magister",
+        "gen": "magistri",
+        "dat": "magistro",
+        "akk": "magistrum",
+        "abl": "magistro"
+      },
+      "pl": {
+        "nom": "magistri",
+        "gen": "magistrorum",
+        "dat": "magistris",
+        "akk": "magistros",
+        "abl": "magistris"
+      }
+    }
   },
   {
     "id": 88,
     "kategorie": "Schule",
     "it": "discipulus",
-    "de": "Schüler"
+    "de": "Schüler",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "discipuli",
+    "formen": {
+      "sg": {
+        "nom": "discipulus",
+        "gen": "discipuli",
+        "dat": "discipulo",
+        "akk": "discipulum",
+        "abl": "discipulo"
+      },
+      "pl": {
+        "nom": "discipuli",
+        "gen": "discipulorum",
+        "dat": "discipulis",
+        "akk": "discipulos",
+        "abl": "discipulis"
+      }
+    }
   },
   {
     "id": 89,
     "kategorie": "Schule",
     "it": "liber",
-    "de": "Buch"
+    "de": "Buch",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "libri",
+    "formen": {
+      "sg": {
+        "nom": "liber",
+        "gen": "libri",
+        "dat": "libro",
+        "akk": "librum",
+        "abl": "libro"
+      },
+      "pl": {
+        "nom": "libri",
+        "gen": "librorum",
+        "dat": "libris",
+        "akk": "libros",
+        "abl": "libris"
+      }
+    }
   },
   {
     "id": 90,
     "kategorie": "Schule",
     "it": "littera",
-    "de": "Buchstabe"
+    "de": "Buchstabe",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "litterae",
+    "formen": {
+      "sg": {
+        "nom": "littera",
+        "gen": "litterae",
+        "dat": "litterae",
+        "akk": "litteram",
+        "abl": "littera"
+      },
+      "pl": {
+        "nom": "litterae",
+        "gen": "litterarum",
+        "dat": "litteris",
+        "akk": "litteras",
+        "abl": "litteris"
+      }
+    }
   },
   {
     "id": 91,
     "kategorie": "Schule",
     "it": "verbum",
-    "de": "Wort"
+    "de": "Wort",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 2,
+    "genitiv": "verbi",
+    "formen": {
+      "sg": {
+        "nom": "verbum",
+        "gen": "verbi",
+        "dat": "verbo",
+        "akk": "verbum",
+        "abl": "verbo"
+      },
+      "pl": {
+        "nom": "verba",
+        "gen": "verborum",
+        "dat": "verbis",
+        "akk": "verba",
+        "abl": "verbis"
+      }
+    }
   },
   {
     "id": 92,
     "kategorie": "Schule",
     "it": "lingua",
-    "de": "Sprache"
+    "de": "Sprache",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "linguae",
+    "formen": {
+      "sg": {
+        "nom": "lingua",
+        "gen": "linguae",
+        "dat": "linguae",
+        "akk": "linguam",
+        "abl": "lingua"
+      },
+      "pl": {
+        "nom": "linguae",
+        "gen": "linguarum",
+        "dat": "linguis",
+        "akk": "linguas",
+        "abl": "linguis"
+      }
+    }
   },
   {
     "id": 93,
     "kategorie": "Schule",
     "it": "charta",
-    "de": "Papier"
+    "de": "Papier",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 1,
+    "genitiv": "chartae",
+    "formen": {
+      "sg": {
+        "nom": "charta",
+        "gen": "chartae",
+        "dat": "chartae",
+        "akk": "chartam",
+        "abl": "charta"
+      },
+      "pl": {
+        "nom": "chartae",
+        "gen": "chartarum",
+        "dat": "chartis",
+        "akk": "chartas",
+        "abl": "chartis"
+      }
+    }
   },
   {
     "id": 94,
     "kategorie": "Schule",
     "it": "stilus",
-    "de": "Schreibgriffel"
+    "de": "Schreibgriffel",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "stili",
+    "formen": {
+      "sg": {
+        "nom": "stilus",
+        "gen": "stili",
+        "dat": "stilo",
+        "akk": "stilum",
+        "abl": "stilo"
+      },
+      "pl": {
+        "nom": "stili",
+        "gen": "stilorum",
+        "dat": "stilis",
+        "akk": "stilos",
+        "abl": "stilis"
+      }
+    }
   },
   {
     "id": 95,
     "kategorie": "Körper",
     "it": "caput",
-    "de": "Kopf"
+    "de": "Kopf",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 3,
+    "genitiv": "capitis",
+    "formen": {
+      "sg": {
+        "nom": "caput",
+        "gen": "capitis",
+        "dat": "capiti",
+        "akk": "caput",
+        "abl": "capite"
+      }
+    }
   },
   {
     "id": 96,
     "kategorie": "Körper",
     "it": "oculus",
-    "de": "Auge"
+    "de": "Auge",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "oculi",
+    "formen": {
+      "sg": {
+        "nom": "oculus",
+        "gen": "oculi",
+        "dat": "oculo",
+        "akk": "oculum",
+        "abl": "oculo"
+      },
+      "pl": {
+        "nom": "oculi",
+        "gen": "oculorum",
+        "dat": "oculis",
+        "akk": "oculos",
+        "abl": "oculis"
+      }
+    }
   },
   {
     "id": 97,
     "kategorie": "Körper",
     "it": "manus",
-    "de": "Hand"
+    "de": "Hand",
+    "wortart": "vokabel"
   },
   {
     "id": 98,
     "kategorie": "Körper",
     "it": "pes",
-    "de": "Fuß"
+    "de": "Fuß",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "pedis",
+    "formen": {
+      "sg": {
+        "nom": "pes",
+        "gen": "pedis",
+        "dat": "pedi",
+        "akk": "pedem",
+        "abl": "pede"
+      }
+    }
   },
   {
     "id": 99,
     "kategorie": "Körper",
     "it": "cor",
-    "de": "Herz"
+    "de": "Herz",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 3,
+    "genitiv": "cordis",
+    "formen": {
+      "sg": {
+        "nom": "cor",
+        "gen": "cordis",
+        "dat": "cordi",
+        "akk": "cor",
+        "abl": "corde"
+      }
+    }
   },
   {
     "id": 100,
     "kategorie": "Körper",
     "it": "os",
-    "de": "Mund"
+    "de": "Mund",
+    "wortart": "nomen",
+    "genus": "n",
+    "deklination": 3,
+    "genitiv": "oris",
+    "formen": {
+      "sg": {
+        "nom": "os",
+        "gen": "oris",
+        "dat": "ori",
+        "akk": "os",
+        "abl": "ore"
+      }
+    }
   },
   {
     "id": 101,
     "kategorie": "Körper",
     "it": "auris",
-    "de": "Ohr"
+    "de": "Ohr",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "auris",
+    "formen": {
+      "sg": {
+        "nom": "auris",
+        "gen": "auris",
+        "dat": "auri",
+        "akk": "aurem",
+        "abl": "aure"
+      }
+    }
   },
   {
     "id": 102,
     "kategorie": "Körper",
     "it": "nasus",
-    "de": "Nase"
+    "de": "Nase",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "nasi",
+    "formen": {
+      "sg": {
+        "nom": "nasus",
+        "gen": "nasi",
+        "dat": "naso",
+        "akk": "nasum",
+        "abl": "naso"
+      },
+      "pl": {
+        "nom": "nasi",
+        "gen": "nasorum",
+        "dat": "nasis",
+        "akk": "nasos",
+        "abl": "nasis"
+      }
+    }
   },
   {
     "id": 103,
     "kategorie": "Tiere",
     "it": "canis",
-    "de": "Hund"
+    "de": "Hund",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "canis",
+    "formen": {
+      "sg": {
+        "nom": "canis",
+        "gen": "canis",
+        "dat": "cani",
+        "akk": "canem",
+        "abl": "cane"
+      }
+    }
   },
   {
     "id": 104,
     "kategorie": "Tiere",
     "it": "felis",
-    "de": "Katze"
+    "de": "Katze",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "felis",
+    "formen": {
+      "sg": {
+        "nom": "felis",
+        "gen": "felis",
+        "dat": "feli",
+        "akk": "felem",
+        "abl": "fele"
+      }
+    }
   },
   {
     "id": 105,
     "kategorie": "Tiere",
     "it": "equus",
-    "de": "Pferd"
+    "de": "Pferd",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "equi",
+    "formen": {
+      "sg": {
+        "nom": "equus",
+        "gen": "equi",
+        "dat": "equo",
+        "akk": "equum",
+        "abl": "equo"
+      },
+      "pl": {
+        "nom": "equi",
+        "gen": "equorum",
+        "dat": "equis",
+        "akk": "equos",
+        "abl": "equis"
+      }
+    }
   },
   {
     "id": 106,
     "kategorie": "Tiere",
     "it": "avis",
-    "de": "Vogel"
+    "de": "Vogel",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "avis",
+    "formen": {
+      "sg": {
+        "nom": "avis",
+        "gen": "avis",
+        "dat": "avi",
+        "akk": "avem",
+        "abl": "ave"
+      }
+    }
   },
   {
     "id": 107,
     "kategorie": "Tiere",
     "it": "leo",
-    "de": "Löwe"
+    "de": "Löwe",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 3,
+    "genitiv": "leonis",
+    "formen": {
+      "sg": {
+        "nom": "leo",
+        "gen": "leonis",
+        "dat": "leoni",
+        "akk": "leonem",
+        "abl": "leone"
+      }
+    }
   },
   {
     "id": 108,
     "kategorie": "Tiere",
     "it": "ursus",
-    "de": "Bär"
+    "de": "Bär",
+    "wortart": "nomen",
+    "genus": "m",
+    "deklination": 2,
+    "genitiv": "ursi",
+    "formen": {
+      "sg": {
+        "nom": "ursus",
+        "gen": "ursi",
+        "dat": "urso",
+        "akk": "ursum",
+        "abl": "urso"
+      },
+      "pl": {
+        "nom": "ursi",
+        "gen": "ursorum",
+        "dat": "ursis",
+        "akk": "ursos",
+        "abl": "ursis"
+      }
+    }
   },
   {
     "id": 109,
     "kategorie": "Tiere",
     "it": "serpens",
-    "de": "Schlange"
+    "de": "Schlange",
+    "wortart": "nomen",
+    "genus": "f",
+    "deklination": 3,
+    "genitiv": "serpentis",
+    "formen": {
+      "sg": {
+        "nom": "serpens",
+        "gen": "serpentis",
+        "dat": "serpenti",
+        "akk": "serpentem",
+        "abl": "serpente"
+      }
+    }
   },
   {
     "id": 110,
     "kategorie": "Tiere",
     "it": "bos",
-    "de": "Rind"
+    "de": "Rind",
+    "wortart": "vokabel"
   },
   {
     "id": 111,
     "kategorie": "Adjektive",
     "it": "magnus",
-    "de": "groß"
+    "de": "groß",
+    "wortart": "vokabel"
   },
   {
     "id": 112,
     "kategorie": "Adjektive",
     "it": "parvus",
-    "de": "klein"
+    "de": "klein",
+    "wortart": "vokabel"
   },
   {
     "id": 113,
     "kategorie": "Adjektive",
     "it": "bonus",
-    "de": "gut"
+    "de": "gut",
+    "wortart": "vokabel"
   },
   {
     "id": 114,
     "kategorie": "Adjektive",
     "it": "malus",
-    "de": "schlecht"
+    "de": "schlecht",
+    "wortart": "vokabel"
   },
   {
     "id": 115,
     "kategorie": "Adjektive",
     "it": "novus",
-    "de": "neu"
+    "de": "neu",
+    "wortart": "vokabel"
   },
   {
     "id": 116,
     "kategorie": "Adjektive",
     "it": "longus",
-    "de": "lang"
+    "de": "lang",
+    "wortart": "vokabel"
   },
   {
     "id": 117,
     "kategorie": "Adjektive",
     "it": "altus",
-    "de": "hoch"
+    "de": "hoch",
+    "wortart": "vokabel"
   },
   {
     "id": 118,
     "kategorie": "Adjektive",
     "it": "multus",
-    "de": "viel"
+    "de": "viel",
+    "wortart": "vokabel"
   },
   {
     "id": 119,
     "kategorie": "Adjektive",
     "it": "omnis",
-    "de": "jeder"
+    "de": "jeder",
+    "wortart": "vokabel"
   },
   {
     "id": 120,
     "kategorie": "Adjektive",
     "it": "pulcher",
-    "de": "schön"
+    "de": "schön",
+    "wortart": "vokabel"
   },
   {
     "id": 121,
     "kategorie": "Personalpronomen",
     "it": "ego",
-    "de": "ich"
+    "de": "ich",
+    "wortart": "vokabel"
   },
   {
     "id": 122,
     "kategorie": "Personalpronomen",
     "it": "tu",
-    "de": "du"
+    "de": "du",
+    "wortart": "vokabel"
   },
   {
     "id": 123,
     "kategorie": "Personalpronomen",
     "it": "is",
-    "de": "er"
+    "de": "er",
+    "wortart": "vokabel"
   },
   {
     "id": 124,
     "kategorie": "Personalpronomen",
     "it": "ea",
-    "de": "sie"
+    "de": "sie",
+    "wortart": "vokabel"
   },
   {
     "id": 125,
     "kategorie": "Personalpronomen",
     "it": "id",
-    "de": "es"
+    "de": "es",
+    "wortart": "vokabel"
   },
   {
     "id": 126,
     "kategorie": "Personalpronomen",
     "it": "nos",
-    "de": "wir"
+    "de": "wir",
+    "wortart": "vokabel"
   },
   {
     "id": 127,
     "kategorie": "Personalpronomen",
     "it": "vos",
-    "de": "ihr"
+    "de": "ihr",
+    "wortart": "vokabel"
   },
   {
     "id": 128,
     "kategorie": "Personalpronomen",
     "it": "ei",
-    "de": "sie (Plural)"
+    "de": "sie (Plural)",
+    "wortart": "vokabel"
   },
   {
     "id": 129,
     "kategorie": "Verben",
     "it": "esse",
-    "de": "sein"
+    "de": "sein",
+    "wortart": "verb",
+    "konjugation": "irregular",
+    "praesens": {
+      "ego": "sum",
+      "tu": "es",
+      "is": "est",
+      "nos": "sumus",
+      "vos": "estis",
+      "ei": "sunt"
+    },
+    "stammformen": {
+      "praesens": "sum",
+      "perfekt": "fui",
+      "supin": null
+    },
+    "formen": {
+      "ego": "sum",
+      "tu": "es",
+      "is": "est",
+      "nos": "sumus",
+      "vos": "estis",
+      "ei": "sunt"
+    }
   },
   {
     "id": 130,
     "kategorie": "Verben",
     "it": "habere",
-    "de": "haben"
+    "de": "haben",
+    "wortart": "verb",
+    "konjugation": "2",
+    "praesens": {
+      "ego": "habeo",
+      "tu": "habes",
+      "is": "habet",
+      "nos": "habemus",
+      "vos": "habetis",
+      "ei": "habent"
+    },
+    "stammformen": {
+      "praesens": "habeo",
+      "infinitiv": "habere",
+      "perfekt": "habui",
+      "supin": "habitum"
+    },
+    "formen": {
+      "ego": "habeo",
+      "tu": "habes",
+      "is": "habet",
+      "nos": "habemus",
+      "vos": "habetis",
+      "ei": "habent"
+    }
   },
   {
     "id": 131,
     "kategorie": "Verben",
     "it": "amare",
-    "de": "lieben"
+    "de": "lieben",
+    "wortart": "verb",
+    "konjugation": "1",
+    "praesens": {
+      "ego": "amo",
+      "tu": "amas",
+      "is": "amat",
+      "nos": "amamus",
+      "vos": "amatis",
+      "ei": "amant"
+    },
+    "stammformen": {
+      "praesens": "amo",
+      "infinitiv": "amare",
+      "perfekt": "amavi",
+      "supin": "amatum"
+    },
+    "formen": {
+      "ego": "amo",
+      "tu": "amas",
+      "is": "amat",
+      "nos": "amamus",
+      "vos": "amatis",
+      "ei": "amant"
+    }
   },
   {
     "id": 132,
     "kategorie": "Verben",
     "it": "videre",
-    "de": "sehen"
+    "de": "sehen",
+    "wortart": "verb",
+    "konjugation": "2",
+    "praesens": {
+      "ego": "video",
+      "tu": "vides",
+      "is": "videt",
+      "nos": "videmus",
+      "vos": "videtis",
+      "ei": "vident"
+    },
+    "stammformen": {
+      "praesens": "video",
+      "infinitiv": "videre",
+      "perfekt": "vidi",
+      "supin": "visum"
+    },
+    "formen": {
+      "ego": "video",
+      "tu": "vides",
+      "is": "videt",
+      "nos": "videmus",
+      "vos": "videtis",
+      "ei": "vident"
+    }
   },
   {
     "id": 133,
     "kategorie": "Verben",
     "it": "audire",
-    "de": "hören"
+    "de": "hören",
+    "wortart": "verb",
+    "konjugation": "4",
+    "praesens": {
+      "ego": "audio",
+      "tu": "audis",
+      "is": "audit",
+      "nos": "audimus",
+      "vos": "auditis",
+      "ei": "audiunt"
+    },
+    "stammformen": {
+      "praesens": "audio",
+      "infinitiv": "audire",
+      "perfekt": "audivi",
+      "supin": "auditum"
+    },
+    "formen": {
+      "ego": "audio",
+      "tu": "audis",
+      "is": "audit",
+      "nos": "audimus",
+      "vos": "auditis",
+      "ei": "audiunt"
+    }
   },
   {
     "id": 134,
     "kategorie": "Verben",
     "it": "dicere",
-    "de": "sagen"
+    "de": "sagen",
+    "wortart": "verb",
+    "konjugation": "3",
+    "praesens": {
+      "ego": "dico",
+      "tu": "dicis",
+      "is": "dicit",
+      "nos": "dicimus",
+      "vos": "dicitis",
+      "ei": "dicunt"
+    },
+    "stammformen": {
+      "praesens": "dico",
+      "infinitiv": "dicere",
+      "perfekt": "dixi",
+      "supin": "dictum"
+    },
+    "formen": {
+      "ego": "dico",
+      "tu": "dicis",
+      "is": "dicit",
+      "nos": "dicimus",
+      "vos": "dicitis",
+      "ei": "dicunt"
+    }
   },
   {
     "id": 135,
     "kategorie": "Verben",
     "it": "facere",
-    "de": "machen"
+    "de": "machen",
+    "wortart": "verb",
+    "konjugation": "3io",
+    "praesens": {
+      "ego": "facio",
+      "tu": "facis",
+      "is": "facit",
+      "nos": "facimus",
+      "vos": "facitis",
+      "ei": "faciunt"
+    },
+    "stammformen": {
+      "praesens": "facio",
+      "infinitiv": "facere",
+      "perfekt": "feci",
+      "supin": "factum"
+    },
+    "formen": {
+      "ego": "facio",
+      "tu": "facis",
+      "is": "facit",
+      "nos": "facimus",
+      "vos": "facitis",
+      "ei": "faciunt"
+    }
   },
   {
     "id": 136,
     "kategorie": "Verben",
     "it": "venire",
-    "de": "kommen"
+    "de": "kommen",
+    "wortart": "verb",
+    "konjugation": "4",
+    "praesens": {
+      "ego": "venio",
+      "tu": "venis",
+      "is": "venit",
+      "nos": "venimus",
+      "vos": "venitis",
+      "ei": "veniunt"
+    },
+    "stammformen": {
+      "praesens": "venio",
+      "infinitiv": "venire",
+      "perfekt": "veni",
+      "supin": "ventum"
+    },
+    "formen": {
+      "ego": "venio",
+      "tu": "venis",
+      "is": "venit",
+      "nos": "venimus",
+      "vos": "venitis",
+      "ei": "veniunt"
+    }
   },
   {
     "id": 137,
     "kategorie": "Verben",
     "it": "ire",
-    "de": "gehen"
+    "de": "gehen",
+    "wortart": "verb",
+    "konjugation": "irregular",
+    "praesens": {
+      "ego": "eo",
+      "tu": "is",
+      "is": "it",
+      "nos": "imus",
+      "vos": "itis",
+      "ei": "eunt"
+    },
+    "stammformen": {
+      "praesens": "eo",
+      "perfekt": "ii",
+      "supin": "itum"
+    },
+    "formen": {
+      "ego": "eo",
+      "tu": "is",
+      "is": "it",
+      "nos": "imus",
+      "vos": "itis",
+      "ei": "eunt"
+    }
   },
   {
     "id": 138,
     "kategorie": "Verben",
     "it": "dare",
-    "de": "geben"
+    "de": "geben",
+    "wortart": "verb",
+    "konjugation": "1",
+    "praesens": {
+      "ego": "do",
+      "tu": "das",
+      "is": "dat",
+      "nos": "damus",
+      "vos": "datis",
+      "ei": "dant"
+    },
+    "stammformen": {
+      "praesens": "do",
+      "infinitiv": "dare",
+      "perfekt": "dedi",
+      "supin": "datum"
+    },
+    "formen": {
+      "ego": "do",
+      "tu": "das",
+      "is": "dat",
+      "nos": "damus",
+      "vos": "datis",
+      "ei": "dant"
+    }
   },
   {
     "id": 139,
     "kategorie": "Verben",
     "it": "legere",
-    "de": "lesen"
+    "de": "lesen",
+    "wortart": "verb",
+    "konjugation": "3",
+    "praesens": {
+      "ego": "lego",
+      "tu": "legis",
+      "is": "legit",
+      "nos": "legimus",
+      "vos": "legitis",
+      "ei": "legunt"
+    },
+    "stammformen": {
+      "praesens": "lego",
+      "infinitiv": "legere",
+      "perfekt": "legi",
+      "supin": "lectum"
+    },
+    "formen": {
+      "ego": "lego",
+      "tu": "legis",
+      "is": "legit",
+      "nos": "legimus",
+      "vos": "legitis",
+      "ei": "legunt"
+    }
   },
   {
     "id": 140,
     "kategorie": "Verben",
     "it": "scribere",
-    "de": "schreiben"
+    "de": "schreiben",
+    "wortart": "verb",
+    "konjugation": "3",
+    "praesens": {
+      "ego": "scribo",
+      "tu": "scribis",
+      "is": "scribit",
+      "nos": "scribimus",
+      "vos": "scribitis",
+      "ei": "scribunt"
+    },
+    "stammformen": {
+      "praesens": "scribo",
+      "infinitiv": "scribere",
+      "perfekt": "scripsi",
+      "supin": "scriptum"
+    },
+    "formen": {
+      "ego": "scribo",
+      "tu": "scribis",
+      "is": "scribit",
+      "nos": "scribimus",
+      "vos": "scribitis",
+      "ei": "scribunt"
+    }
   },
   {
     "id": 141,
     "kategorie": "Verben",
     "it": "vocare",
-    "de": "rufen"
+    "de": "rufen",
+    "wortart": "verb",
+    "konjugation": "1",
+    "praesens": {
+      "ego": "voco",
+      "tu": "vocas",
+      "is": "vocat",
+      "nos": "vocamus",
+      "vos": "vocatis",
+      "ei": "vocant"
+    },
+    "stammformen": {
+      "praesens": "voco",
+      "infinitiv": "vocare",
+      "perfekt": "vocavi",
+      "supin": "vocatum"
+    },
+    "formen": {
+      "ego": "voco",
+      "tu": "vocas",
+      "is": "vocat",
+      "nos": "vocamus",
+      "vos": "vocatis",
+      "ei": "vocant"
+    }
   },
   {
     "id": 142,
     "kategorie": "Verben",
     "it": "laudare",
-    "de": "loben"
+    "de": "loben",
+    "wortart": "verb",
+    "konjugation": "1",
+    "praesens": {
+      "ego": "laudo",
+      "tu": "laudas",
+      "is": "laudat",
+      "nos": "laudamus",
+      "vos": "laudatis",
+      "ei": "laudant"
+    },
+    "stammformen": {
+      "praesens": "laudo",
+      "infinitiv": "laudare",
+      "perfekt": "laudavi",
+      "supin": "laudatum"
+    },
+    "formen": {
+      "ego": "laudo",
+      "tu": "laudas",
+      "is": "laudat",
+      "nos": "laudamus",
+      "vos": "laudatis",
+      "ei": "laudant"
+    }
   },
   {
     "id": 143,
     "kategorie": "Verben",
     "it": "pugnare",
-    "de": "kämpfen"
+    "de": "kämpfen",
+    "wortart": "verb",
+    "konjugation": "1",
+    "praesens": {
+      "ego": "pugno",
+      "tu": "pugnas",
+      "is": "pugnat",
+      "nos": "pugnamus",
+      "vos": "pugnatis",
+      "ei": "pugnant"
+    },
+    "stammformen": {
+      "praesens": "pugno",
+      "infinitiv": "pugnare",
+      "perfekt": "pugnavi",
+      "supin": "pugnatum"
+    },
+    "formen": {
+      "ego": "pugno",
+      "tu": "pugnas",
+      "is": "pugnat",
+      "nos": "pugnamus",
+      "vos": "pugnatis",
+      "ei": "pugnant"
+    }
   },
   {
     "id": 144,
     "kategorie": "Verben",
     "it": "currere",
-    "de": "laufen"
+    "de": "laufen",
+    "wortart": "verb",
+    "konjugation": "3",
+    "praesens": {
+      "ego": "curro",
+      "tu": "curris",
+      "is": "currit",
+      "nos": "currimus",
+      "vos": "curritis",
+      "ei": "currunt"
+    },
+    "stammformen": {
+      "praesens": "curro",
+      "infinitiv": "currere",
+      "perfekt": "cucurri",
+      "supin": "cursum"
+    },
+    "formen": {
+      "ego": "curro",
+      "tu": "curris",
+      "is": "currit",
+      "nos": "currimus",
+      "vos": "curritis",
+      "ei": "currunt"
+    }
   },
   {
     "id": 145,
     "kategorie": "Verben",
     "it": "sedere",
-    "de": "sitzen"
+    "de": "sitzen",
+    "wortart": "verb",
+    "konjugation": "2",
+    "praesens": {
+      "ego": "sedeo",
+      "tu": "sedes",
+      "is": "sedet",
+      "nos": "sedemus",
+      "vos": "sedetis",
+      "ei": "sedent"
+    },
+    "stammformen": {
+      "praesens": "sedeo",
+      "infinitiv": "sedere",
+      "perfekt": "sedi",
+      "supin": "sessum"
+    },
+    "formen": {
+      "ego": "sedeo",
+      "tu": "sedes",
+      "is": "sedet",
+      "nos": "sedemus",
+      "vos": "sedetis",
+      "ei": "sedent"
+    }
   },
   {
     "id": 146,
     "kategorie": "Verben",
     "it": "stare",
-    "de": "stehen"
+    "de": "stehen",
+    "wortart": "verb",
+    "konjugation": "1",
+    "praesens": {
+      "ego": "sto",
+      "tu": "stas",
+      "is": "stat",
+      "nos": "stamus",
+      "vos": "statis",
+      "ei": "stant"
+    },
+    "stammformen": {
+      "praesens": "sto",
+      "infinitiv": "stare",
+      "perfekt": "steti",
+      "supin": "statum"
+    },
+    "formen": {
+      "ego": "sto",
+      "tu": "stas",
+      "is": "stat",
+      "nos": "stamus",
+      "vos": "statis",
+      "ei": "stant"
+    }
   },
   {
     "id": 147,
     "kategorie": "Verben",
     "it": "dormire",
-    "de": "schlafen"
+    "de": "schlafen",
+    "wortart": "verb",
+    "konjugation": "4",
+    "praesens": {
+      "ego": "dormio",
+      "tu": "dormis",
+      "is": "dormit",
+      "nos": "dormimus",
+      "vos": "dormitis",
+      "ei": "dormiunt"
+    },
+    "stammformen": {
+      "praesens": "dormio",
+      "infinitiv": "dormire",
+      "perfekt": "dormivi",
+      "supin": "dormitum"
+    },
+    "formen": {
+      "ego": "dormio",
+      "tu": "dormis",
+      "is": "dormit",
+      "nos": "dormimus",
+      "vos": "dormitis",
+      "ei": "dormiunt"
+    }
   },
   {
     "id": 148,
     "kategorie": "Verben",
     "it": "edere",
-    "de": "essen"
+    "de": "essen",
+    "wortart": "verb",
+    "konjugation": "3",
+    "praesens": {
+      "ego": "edo",
+      "tu": "edis",
+      "is": "edit",
+      "nos": "edimus",
+      "vos": "editis",
+      "ei": "edunt"
+    },
+    "stammformen": {
+      "praesens": "edo",
+      "infinitiv": "edere",
+      "perfekt": "edi",
+      "supin": "esum"
+    },
+    "formen": {
+      "ego": "edo",
+      "tu": "edis",
+      "is": "edit",
+      "nos": "edimus",
+      "vos": "editis",
+      "ei": "edunt"
+    }
   },
   {
     "id": 149,
     "kategorie": "Verben",
     "it": "bibere",
-    "de": "trinken"
+    "de": "trinken",
+    "wortart": "verb",
+    "konjugation": "3",
+    "praesens": {
+      "ego": "bibo",
+      "tu": "bibis",
+      "is": "bibit",
+      "nos": "bibimus",
+      "vos": "bibitis",
+      "ei": "bibunt"
+    },
+    "stammformen": {
+      "praesens": "bibo",
+      "infinitiv": "bibere",
+      "perfekt": "bibi",
+      "supin": null
+    },
+    "formen": {
+      "ego": "bibo",
+      "tu": "bibis",
+      "is": "bibit",
+      "nos": "bibimus",
+      "vos": "bibitis",
+      "ei": "bibunt"
+    }
   },
   {
     "id": 150,
     "kategorie": "Verben",
     "it": "scire",
-    "de": "wissen"
+    "de": "wissen",
+    "wortart": "verb",
+    "konjugation": "4",
+    "praesens": {
+      "ego": "scio",
+      "tu": "scis",
+      "is": "scit",
+      "nos": "scimus",
+      "vos": "scitis",
+      "ei": "sciunt"
+    },
+    "stammformen": {
+      "praesens": "scio",
+      "infinitiv": "scire",
+      "perfekt": "scivi",
+      "supin": "scitum"
+    },
+    "formen": {
+      "ego": "scio",
+      "tu": "scis",
+      "is": "scit",
+      "nos": "scimus",
+      "vos": "scitis",
+      "ei": "sciunt"
+    }
   },
   {
     "id": 151,
     "kategorie": "Verben",
     "it": "putare",
-    "de": "glauben"
+    "de": "glauben",
+    "wortart": "verb",
+    "konjugation": "1",
+    "praesens": {
+      "ego": "puto",
+      "tu": "putas",
+      "is": "putat",
+      "nos": "putamus",
+      "vos": "putatis",
+      "ei": "putant"
+    },
+    "stammformen": {
+      "praesens": "puto",
+      "infinitiv": "putare",
+      "perfekt": "putavi",
+      "supin": "putatum"
+    },
+    "formen": {
+      "ego": "puto",
+      "tu": "putas",
+      "is": "putat",
+      "nos": "putamus",
+      "vos": "putatis",
+      "ei": "putant"
+    }
   },
   {
     "id": 152,
     "kategorie": "Verben",
     "it": "vivere",
-    "de": "leben"
+    "de": "leben",
+    "wortart": "verb",
+    "konjugation": "3",
+    "praesens": {
+      "ego": "vivo",
+      "tu": "vivis",
+      "is": "vivit",
+      "nos": "vivimus",
+      "vos": "vivitis",
+      "ei": "vivunt"
+    },
+    "stammformen": {
+      "praesens": "vivo",
+      "infinitiv": "vivere",
+      "perfekt": "vixi",
+      "supin": "victum"
+    },
+    "formen": {
+      "ego": "vivo",
+      "tu": "vivis",
+      "is": "vivit",
+      "nos": "vivimus",
+      "vos": "vivitis",
+      "ei": "vivunt"
+    }
   },
   {
     "id": 153,
     "kategorie": "Verben",
     "it": "mori",
-    "de": "sterben"
+    "de": "sterben",
+    "wortart": "vokabel"
   }
 ]
